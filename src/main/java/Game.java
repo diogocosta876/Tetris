@@ -75,6 +75,33 @@ public class Game {
     public void run() {
         try {
             while(true) {
+                //game timing
+                Thread.sleep(100);
+
+                //input
+                if (keyController.isLeftPressed()){
+                    System.out.println("left pressed");
+                }
+                if (keyController.isRightPressed()){
+                    System.out.println("right pressed");
+                }
+                if (keyController.isUpPressed()){
+                    System.out.println("up pressed");
+                }
+                if (keyController.isDownPressed()){
+                    System.out.println("down pressed");
+                }
+                if (keyController.isEscPressed()){
+                    screen.close();
+                    System.exit(0);
+                }
+
+                //game logic
+                if (piece == null)
+                    piece = new Piece();
+
+
+                //render output
                 draw();
                 com.googlecode.lanterna.input.KeyStroke key = screen.readInput();
                 processKey(key);
@@ -84,7 +111,7 @@ public class Game {
                 if (key.getKeyType() == KeyType.EOF)
                     break;
             }
-        } catch (IOException e){
+        } catch (IOException | InterruptedException e){
             e.printStackTrace();
         }
 
