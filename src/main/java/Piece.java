@@ -18,6 +18,10 @@ public class Piece {
                 {0,0,0,0}};
     }
 
+    public void moveLeft(){ pos_x-=2; }
+    public void moveRight(){ pos_x+=2; }
+    public void forceDown(){ pos_y++; }
+
     public void draw(TextGraphics screen){
         screen.setBackgroundColor(TextColor.Factory.fromString("#0033CC"));
 

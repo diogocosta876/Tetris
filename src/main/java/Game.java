@@ -13,6 +13,8 @@ public class Game {
     private static final int gameScreenYoffset = 2;
     private static final int gameScreenWidth = 30;
     private static final int gameScreenLength= 30;
+    private static int gameSpeed = 10;  //smaller is faster, ticks needed to force piece down
+    private int nTickCounter = 0;
 
     private Board board;
     private Piece piece;
@@ -77,70 +79,57 @@ public class Game {
         }
     }
 
-    public void run() {
-        try {
-            while(true) {
-                //game timing
+    public void run() throws IOException {
+        while(true) {
+            //game timing
+            try {
                 Thread.sleep(100);
-
-                //input
-                if (keyController.isLeftPressed()){
-                    System.out.println("left pressed");
-                }
-                if (keyController.isRightPressed()){
-                    System.out.println("right pressed");
-                }
-                if (keyController.isUpPressed()){
-                    System.out.println("up pressed");
-                }
-                if (keyController.isDownPressed()){
-                    System.out.println("down pressed");
-                }
-                if (keyController.isEscPressed()){
-                    screen.close();
-                    System.exit(0);
-                }
-
-                //game logic
-                if (piece == null)
-                    piece = new Piece();
-
-
-                //render output
-                draw();
-                com.googlecode.lanterna.input.KeyStroke key = screen.readInput();
-                processKey(key);
-
-                //input
-                if (InputController.isLeftPressed()){
-                    System.out.println("left pressed");
-                }
-                if (InputController.isRightPressed()){
-                    System.out.println("right pressed");
-                }
-                if (InputController.isUpPressed()){
-                    System.out.println("up pressed");
-                }
-                if (InputController.isDownPressed()){
-                    System.out.println("down pressed");
-                }
-                if (InputController.isEscPressed()){
-                    screen.close();
-                    System.exit(0);
-                }
-
-                //game logic
-                if (piece == null)
-                    piece = new Piece();
-
-                //render output
-                draw();
-
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-        } catch (IOException | InterruptedException e){
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+            //input
+            if (keyController.isLeftPressed()) {
+                System.out.println("left pressed");
+                //move left horizontally
+                piece.moveLeft();
+            }
+            if (keyController.isRightPressed()) {
+                System.out.println("right pressed");
+                //move right horizontally
+                piece.moveRight();
+            }
+            if (keyController.isUpPressed()) {
+                System.out.println("up pressed");
+                //TODO Rotate
+            }
+            if (keyController.isDownPressed()) {
+                //force down
+                System.out.println("down pressed");
+                piece.forceDown();
+            }
+            if (keyController.isEscPressed()) {
+                screen.close();
+                System.exit(0);
+            }
+
+            //game logic
+            if (piece == null)
+                piece = new Piece();
+
+            if (nTickCounter == gameSpeed) {
+                piece.forceDown();
+                nTickCounter = 0;
+            } else {
+                nTickCounter++;
+            }
+
+            //render output
+            try {
+                draw();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
 
     }

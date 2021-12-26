@@ -14,6 +14,7 @@ public class Board {
         }
     }
 
+
     public void draw(TextGraphics screen) {
 
         //Iterate piece matrix to draw it, using it's position
@@ -30,4 +31,6 @@ public class Board {
             }
         }
     }
+
+
 }
