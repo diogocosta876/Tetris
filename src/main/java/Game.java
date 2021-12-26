@@ -1,5 +1,4 @@
 import com.googlecode.lanterna.*;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -15,6 +14,9 @@ public class Game {
     private static final int gameScreenWidth = 30;
     private static final int gameScreenLength= 30;
 
+    private Board board;
+    private Piece piece;
+
     public Game() {
         try {
             TerminalSize terminalSize = new TerminalSize(75, 35);
@@ -28,19 +30,19 @@ public class Game {
                 IOException e) {
             e.printStackTrace();
         }
+        board = new Board();
     }
 
     private void draw() throws IOException{
         screen.clear();
+        //initialize and drawn background
         TextGraphics screenGraphics = screen.newTextGraphics();
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
         screenGraphics.fillRectangle(new TerminalPosition(0,0), new TerminalSize(80, 40), ' ');
+
+        //draw game screen
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         screenGraphics.fillRectangle(new TerminalPosition(gameScreenXoffset,gameScreenYoffset), new TerminalSize(gameScreenWidth, gameScreenLength), ' ');
-
-        Piece my_piece = new Piece();
-        my_piece.draw(screenGraphics);
-
 
         //NEXT PIECE - will need refactoring
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
@@ -59,6 +61,9 @@ public class Game {
         screenGraphics.putString(42,23, " |___/\\___\\___/|_|_\\___|");
         screenGraphics.putString(52,26, "0700", SGR.BOLD);
 
+        board.draw(screenGraphics);
+        piece.draw(screenGraphics);
+
         screen.refresh();
     }
 
@@ -74,34 +79,31 @@ public class Game {
 
     public void run() {
         try {
-            draw();
             while(true) {
                 //game timing
                 Thread.sleep(100);
-                System.out.println("tick");
 
                 //input
-                //com.googlecode.lanterna.input.KeyStroke key = screen.readInput();
-                //processKey(key);
-                if (Controller.isLeftPressed()){
+                if (InputController.isLeftPressed()){
                     System.out.println("left pressed");
                 }
-                if (Controller.isRightPressed()){
+                if (InputController.isRightPressed()){
                     System.out.println("right pressed");
                 }
-                if (Controller.isUpPressed()){
+                if (InputController.isUpPressed()){
                     System.out.println("up pressed");
                 }
-                if (Controller.isDownPressed()){
+                if (InputController.isDownPressed()){
                     System.out.println("down pressed");
                 }
-                if (Controller.isEscPressed()){
+                if (InputController.isEscPressed()){
                     screen.close();
                     System.exit(0);
                 }
 
                 //game logic
-
+                if (piece == null)
+                    piece = new Piece();
 
                 //render output
                 draw();

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Piece {
     private int[][] matrix;
-    int pos_x = Game.getGameScreenWidth()/2, pos_y =1;
+    int pos_x = Game.getGameScreenWidth()/2-1, pos_y =1;
 
     public Piece(){
         matrix = new int[][]{
@@ -25,7 +25,7 @@ public class Piece {
         for (int y = 0; y < 4; y++){
             for (int x = 0; x < 8; x++){
                 if (matrix[y][x/2] == 1)
-                    screen.putString(new TerminalPosition(pos_x + x - 3 + Game.getGameScreenXoffset(), pos_y + y - 2 + Game.getGameScreenYoffset()), " ");
+                    screen.putString(new TerminalPosition(pos_x + x - 2 + Game.getGameScreenXoffset(), pos_y + y - 2 + Game.getGameScreenYoffset()), " ");
             }
         }
     }
