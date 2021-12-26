@@ -1,12 +1,14 @@
-import spock.lang.Specification;
+import spock.lang.Specification
 
-class InputControllerTest extends Specification{
+import java.awt.event.KeyEvent;
+
+class keyControllerTest extends Specification{
 
     def 'Controller Move Left'() {
         given:
         def game = new Game();
         when:
-        def result = 1
+        result = 1
         then:
         result == 1
     }
