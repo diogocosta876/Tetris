@@ -35,7 +35,7 @@ public class Game {
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         screenGraphics.fillRectangle(new TerminalPosition(2,2), new TerminalSize(40, 32), ' ');
 
-        //NEXT PIECE
+        //NEXT PIECE - will need refactoring
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
         screenGraphics.putString(48,3, " _  _ _____  _______   ");
         screenGraphics.putString(48,4, "| \\| | __\\ \\/ /_   _|");
@@ -44,7 +44,7 @@ public class Game {
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         screenGraphics.fillRectangle(new TerminalPosition(48,8), new TerminalSize(20, 10), ' ');
 
-        //SCORE
+        //SCORE - will need refactoring
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
         screenGraphics.putString(46,20, "  ___  ___ ___  ___ ___");
         screenGraphics.putString(46,21, " / __|/ __/ _ \\| _ \\ __|");
@@ -67,17 +67,42 @@ public class Game {
 
     public void run() {
         try {
+            draw();
             while(true) {
-                draw();
-                com.googlecode.lanterna.input.KeyStroke key = screen.readInput();
-                processKey(key);
+                //game timing
+                Thread.sleep(100);
+                System.out.println("tick");
 
-                if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('q'))
+                //input
+                //com.googlecode.lanterna.input.KeyStroke key = screen.readInput();
+                //processKey(key);
+                if (Controller.isLeftPressed()){
+                    System.out.println("left pressed");
+                }
+                if (Controller.isRightPressed()){
+                    System.out.println("right pressed");
+                }
+                if (Controller.isUpPressed()){
+                    System.out.println("up pressed");
+                }
+                if (Controller.isDownPressed()){
+                    System.out.println("down pressed");
+                }
+                if (Controller.isEscPressed()){
                     screen.close();
-                if (key.getKeyType() == KeyType.EOF)
-                    break;
+                    System.exit(0);
+                }
+
+                //game logic
+
+
+                //render output
+                draw();
+
             }
         } catch (IOException e){
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
