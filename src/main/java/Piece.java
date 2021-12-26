@@ -20,6 +20,8 @@ public class Piece {
 
     public void draw(TextGraphics screen){
         screen.setBackgroundColor(TextColor.Factory.fromString("#0033CC"));
+
+        //Iterate piece matrix to draw it, using it's position
         for (int y = 0; y < 4; y++){
             for (int x = 0; x < 8; x++){
                 if (matrix[y][x/2] == 1)
