@@ -10,6 +10,10 @@ import java.io.IOException;
 public class Game {
 
     private Screen screen;
+    private static final int gameScreenXoffset = 4;
+    private static final int gameScreenYoffset = 2;
+    private static final int gameScreenWidth = 30;
+    private static final int gameScreenLength= 30;
 
     public Game() {
         try {
@@ -30,27 +34,30 @@ public class Game {
         screen.clear();
         TextGraphics screenGraphics = screen.newTextGraphics();
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
-        screenGraphics.fillRectangle(new TerminalPosition(0,0), new TerminalSize(90, 40), ' ');
-        screenGraphics.setCharacter(2,2,'m');
+        screenGraphics.fillRectangle(new TerminalPosition(0,0), new TerminalSize(80, 40), ' ');
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-        screenGraphics.fillRectangle(new TerminalPosition(2,2), new TerminalSize(40, 32), ' ');
+        screenGraphics.fillRectangle(new TerminalPosition(gameScreenXoffset,gameScreenYoffset), new TerminalSize(gameScreenWidth, gameScreenLength), ' ');
+
+        Piece my_piece = new Piece();
+        my_piece.draw(screenGraphics);
+
 
         //NEXT PIECE
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
-        screenGraphics.putString(48,3, " _  _ _____  _______   ");
-        screenGraphics.putString(48,4, "| \\| | __\\ \\/ /_   _|");
-        screenGraphics.putString(48,5, "| .` | _| >  <  | | ");
-        screenGraphics.putString(48,6, "|_|\\_|___/_/\\_\\ |_|");
+        screenGraphics.putString(45,3, " _  _ _____  _______   ");
+        screenGraphics.putString(45,4, "| \\| | __\\ \\/ /_   _|");
+        screenGraphics.putString(45,5, "| .` | _| >  <  | | ");
+        screenGraphics.putString(45,6, "|_|\\_|___/_/\\_\\ |_|");
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-        screenGraphics.fillRectangle(new TerminalPosition(48,8), new TerminalSize(20, 10), ' ');
+        screenGraphics.fillRectangle(new TerminalPosition(45,8), new TerminalSize(20, 10), ' ');
 
         //SCORE
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
-        screenGraphics.putString(46,20, "  ___  ___ ___  ___ ___");
-        screenGraphics.putString(46,21, " / __|/ __/ _ \\| _ \\ __|");
-        screenGraphics.putString(46,22, " \\__ \\ (_| (_) |   / _|");
-        screenGraphics.putString(46,23, " |___/\\___\\___/|_|_\\___|");
-        screenGraphics.putString(57,26, "0700", SGR.BOLD);
+        screenGraphics.putString(42,20, "  ___  ___ ___  ___ ___");
+        screenGraphics.putString(42,21, " / __|/ __/ _ \\| _ \\ __|");
+        screenGraphics.putString(42,22, " \\__ \\ (_| (_) |   / _|");
+        screenGraphics.putString(42,23, " |___/\\___\\___/|_|_\\___|");
+        screenGraphics.putString(52,26, "0700", SGR.BOLD);
 
         screen.refresh();
     }
@@ -81,5 +88,18 @@ public class Game {
             e.printStackTrace();
         }
 
+    }
+
+    public static int getGameScreenXoffset(){
+        return gameScreenXoffset;
+    }
+    public static int getGameScreenYoffset(){
+        return gameScreenYoffset;
+    }
+    public static int getGameScreenWidth(){
+        return gameScreenWidth;
+    }
+    public static int getGameScreenLength(){
+        return gameScreenWidth;
     }
 }
