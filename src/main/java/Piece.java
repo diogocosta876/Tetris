@@ -15,6 +15,7 @@ public class Piece {
 
     public Piece(){
         int[][] matrixInt = new int[][]{
+                //Must be a square
                 {1,1},
                 {1,1}};
 
@@ -50,15 +51,17 @@ public class Piece {
 
 
     }
-
     public void moveLeft(){ pos_x-=2; }
     public void moveRight(){ pos_x+=2; }
     public void forceDown(){ pos_y++; }
 
     public int getBottomPos(){
-        //TODO Tornar Automatico
-        return pos_y + 1;
+        return pos_y + getMatrix().length -1;
     }
+    public int getRightPos(){
+        return pos_x + getMatrix()[0].length -1;
+    }
+
 
 
     public int getPos_x() {

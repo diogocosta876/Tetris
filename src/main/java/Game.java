@@ -84,12 +84,12 @@ public class Game {
             }
 
             //input
-            if (keyController.isLeftPressed()) {
+            if (keyController.isLeftPressed()&& piece.getPos_x()-1>0) {
                 System.out.println("left pressed");
                 //move left horizontally
                 piece.moveLeft();
             }
-            if (keyController.isRightPressed()) {
+            if (keyController.isRightPressed() && piece.getRightPos()+1<gameScreenWidth) {
                 System.out.println("right pressed");
                 //move right horizontally
                 piece.moveRight();
