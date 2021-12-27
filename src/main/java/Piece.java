@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Piece {
-    List<Point> matrix;
-    int pos_x = Game.getGameScreenWidth()/2-1;
-    int pos_y =0;
+    private String[][] matrix;
+    private int pos_x = Game.getGameScreenWidth()/2-1;
+    private int pos_y =0;
     private String color = "#0033CC";
 
     public Piece(){
@@ -18,20 +18,20 @@ public class Piece {
                 {1,1},
                 {1,1}};
 
-        this.matrix = convertMatrixToPointList(matrixInt);
+        this.matrix = convertIntMatrixToStringMatrix(matrixInt);
     }
 
-    public List<Point> convertMatrixToPointList(int[][] matrix){
-        List<Point> pieceMatrix = new ArrayList<>();
+    public String[][] convertIntMatrixToStringMatrix(int[][] matrix){
+        String[][] pieceMatrix = new String[matrix.length][matrix[0].length];
+
         for (int y = 0; y < matrix.length; y++){
-            for (int x = 0; x < matrix[0].length; x++){
-                String fillColor;
-                if(matrix[x][y]== 1){
-                    fillColor = color;
+            for (int x = 0; x < matrix[y].length; x++){
+                if(matrix[y][x]==1) {
+                    pieceMatrix[y][x] = color;
                 }else{
-                    fillColor = "#000000";
+                    pieceMatrix[y][x] = "#000000";
                 }
-                pieceMatrix.add(new Point(x,y,fillColor));
+
             }
         }
         return pieceMatrix;
@@ -40,19 +40,32 @@ public class Piece {
     public void draw(TextGraphics screen){
         screen.setBackgroundColor(TextColor.Factory.fromString(color));
 
-        for(Point point: matrix){
-            if(point.getColor()!="#000000"){
-                screen.putString(new TerminalPosition(pos_x + point.getX() + Game.getGameScreenXoffset(), pos_y + point.getY() + Game.getGameScreenYoffset()), " ");
+        for(int y =0; y<matrix.length; y++){
+            for (int x = 0; x < matrix[y].length; x++){
+                if(matrix[y][x]!="#000000") {
+                    screen.putString(new TerminalPosition(pos_x + x + Game.getGameScreenXoffset(), pos_y + y + Game.getGameScreenYoffset()), " ");
+                }
             }
-
         }
+
+
     }
 
     public void moveLeft(){ pos_x-=2; }
     public void moveRight(){ pos_x+=2; }
     public void forceDown(){ pos_y++; }
+
     public int getBottomPos(){
+        //TODO Tornar Automatico
         return pos_y + 1;
     }
 
+
+    public int getPos_x() {
+        return pos_x;
+    }
+
+    public int getPos_y() {
+        return pos_y;
+    }
 }

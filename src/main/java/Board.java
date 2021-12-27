@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Vector;
 
 public class Board {
-    private List<Point> matrix;
+    private String[][] matrix;
 
     private int width;
     private int length;
@@ -16,23 +16,24 @@ public class Board {
         this.width = width;
         this.length = length;
 
-        matrix = new ArrayList<>();
+        matrix = new String[length][width];
 
         for (int y = 0; y < length; y++){
             for (int x = 0; x < width; x++){
-                matrix.add(new Point(x,y,"#000000"));
+                matrix[y][x] = "#000000";
                 System.out.println("element added");
             }
         }
     }
 
     public void draw(TextGraphics screen) {
-        for(Point point: matrix){
-            screen.setBackgroundColor(TextColor.Factory.fromString(point.getColor()));
-            screen.putString(new TerminalPosition(point.getX() + Game.getGameScreenXoffset(), point.getY() + Game.getGameScreenYoffset()), " ");
+        for (int y = 0; y < length; y++){
+            for (int x = 0; x < width; x++){
+                screen.setBackgroundColor(TextColor.Factory.fromString(matrix[y][x]));
+                screen.putString(new TerminalPosition(x + Game.getGameScreenXoffset(), y + Game.getGameScreenYoffset()), " ");
+            }
         }
     }
-
 
     public boolean stop(Piece piece){
         if(piece.getBottomPos()+1>=length){
