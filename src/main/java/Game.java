@@ -13,7 +13,7 @@ public class Game {
     private static final int gameScreenYoffset = 2;
     private static final int gameScreenWidth = 30;
     private static final int gameScreenLength= 30;
-    private static int gameSpeed = 10;  //smaller is faster, ticks needed to force piece down
+    private static int gameSpeed = 5;  //smaller is faster, ticks needed to force piece down
     private int nTickCounter = 0;
 
     private Board board;
@@ -83,6 +83,10 @@ public class Game {
                 ex.printStackTrace();
             }
 
+            //game logic
+            if (piece == null)
+                piece = new Piece();
+
             //input
             if (keyController.isLeftPressed()&& piece.getPos_x()-1>0) {
                 System.out.println("left pressed");
@@ -108,9 +112,6 @@ public class Game {
                 System.exit(0);
             }
 
-            //game logic
-            if (piece == null)
-                piece = new Piece();
 
             if (nTickCounter == gameSpeed ) {
                 piece.forceDown();
