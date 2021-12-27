@@ -39,9 +39,17 @@ public class Board {
         if(piece.getBottomPos()+1>=length){
             System.out.println("Chegou ao Fundo");
             addPiece(piece);
-
-
             return true;
+        }
+        for(int y =0; y<piece.getMatrix().length; y++){
+            for (int x = 0; x <piece.getMatrix()[y].length; x++){
+                if(piece.getMatrix()[y][x]!="#000000") {
+                    if(matrix[y+piece.getPos_y()+1][x+ piece.getPos_x()]!="#000000"){
+                        addPiece(piece);
+                        return true;
+                    }
+                }
+            }
         }
         return false;
     }
