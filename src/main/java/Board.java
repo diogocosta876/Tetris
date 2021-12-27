@@ -38,6 +38,7 @@ public class Board {
     public boolean stop(Piece piece){
         if(piece.getBottomPos()+1>=length){
             System.out.println("Chegou ao Fundo");
+            addPiece(piece);
 
 
             return true;
@@ -46,6 +47,13 @@ public class Board {
     }
 
     public void addPiece(Piece piece){
+        for(int y =0; y<piece.getMatrix().length;y++){
+            for(int x=0; x<piece.getMatrix()[y].length;x++){
+                if(piece.getMatrix()[y][x] != "#000000"){
+                    matrix[y+piece.getPos_y()][x+ piece.getPos_x()] = piece.getMatrix()[y][x];
+                }
+            }
+        }
 
     }
 

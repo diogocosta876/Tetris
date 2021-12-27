@@ -68,4 +68,8 @@ public class Piece {
     public int getPos_y() {
         return pos_y;
     }
+
+    public String[][] getMatrix() {
+        return matrix;
+    }
 }
