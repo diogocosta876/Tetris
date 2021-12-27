@@ -32,7 +32,7 @@ public class Game {
                 IOException e) {
             e.printStackTrace();
         }
-        board = new Board();
+        board = new Board(gameScreenWidth,gameScreenLength);
     }
 
     private void draw() throws IOException{
@@ -63,21 +63,16 @@ public class Game {
         screenGraphics.putString(42,23, " |___/\\___\\___/|_|_\\___|");
         screenGraphics.putString(52,26, "0700", SGR.BOLD);
 
+
         board.draw(screenGraphics);
         piece.draw(screenGraphics);
+        if(board.stop(piece)){
+            piece = null;
+        }
 
         screen.refresh();
     }
 
-    private void processKey(com.googlecode.lanterna.input.KeyStroke key){
-        System.out.println(key);
-        switch (key.getKeyType()) {
-            case ArrowUp    -> System.out.println("moving");
-            case ArrowDown  -> System.out.println("moving");
-            case ArrowLeft  -> System.out.println("moving");
-            case ArrowRight -> System.out.println("moving");
-        }
-    }
 
     public void run() throws IOException {
         while(true) {
@@ -117,7 +112,7 @@ public class Game {
             if (piece == null)
                 piece = new Piece();
 
-            if (nTickCounter == gameSpeed) {
+            if (nTickCounter == gameSpeed ) {
                 piece.forceDown();
                 nTickCounter = 0;
             } else {
@@ -133,6 +128,7 @@ public class Game {
         }
 
     }
+
 
     public static int getGameScreenXoffset(){
         return gameScreenXoffset;
