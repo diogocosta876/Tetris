@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Piece {
     private String[][] matrix;
-    private int pos_x = Game.getGameScreenWidth()/2-1;
+    private int pos_x = Game.getGameScreenWidth()/2;
     private int pos_y =0;
     private String color = "#0033CC";
 
@@ -41,18 +41,19 @@ public class Piece {
     public void draw(TextGraphics screen){
         screen.setBackgroundColor(TextColor.Factory.fromString(color));
 
-        for(int y =0; y<matrix.length; y++){
-            for (int x = 0; x < matrix[y].length; x++){
-                if(matrix[y][x]!="#000000") {
-                    screen.putString(new TerminalPosition(pos_x + x + Game.getGameScreenXoffset(), pos_y + y + Game.getGameScreenYoffset()), " ");
+        for(int y =0; y< matrix.length; y++){
+            for (int x = 0; x < matrix[y].length*2; x+=2){
+                if(matrix[y][x/2]!="#000000") {
+                    //TODO REMOVE LINE (on to debug)
+                    screen.putString(new TerminalPosition(pos_x*2 + x + Game.getGameScreenXoffset(), pos_y + y + Game.getGameScreenYoffset()), Integer.toString(pos_x + x/2));
+                    //screen.putString(new TerminalPosition(pos_x*2 + x + Game.getGameScreenXoffset(), pos_y + y + Game.getGameScreenYoffset()), " ");
+                    screen.putString(new TerminalPosition(pos_x*2 + x +1 + Game.getGameScreenXoffset(), pos_y + y + Game.getGameScreenYoffset()), " ");
                 }
             }
         }
-
-
     }
-    public void moveLeft(){ pos_x-=2; }
-    public void moveRight(){ pos_x+=2; }
+    public void moveLeft(){ pos_x-=1; }
+    public void moveRight(){ pos_x+=1; }
     public void forceDown(){ pos_y++; }
 
     public int getBottomPos(){
