@@ -78,13 +78,12 @@ public class Game {
             //TODO game logic add here
             if (piece == null) piece = new Piece();
 
-            if(board.hasHitBottom(piece)){
-                piece = null;
-                nTickCounter = 0;
-                continue;
-            }
-
             if (nTickCounter == gameSpeed ) {
+                if(board.hasHitBottom(piece)){
+                    piece = null;
+                    nTickCounter = 0;
+                    continue;
+                }
                 piece.forceDown();
                 nTickCounter = 0;
             } else {
@@ -109,6 +108,11 @@ public class Game {
             if (keyController.isDownPressed()) {
                 //force down
                 //System.out.println("down pressed");
+                if(board.hasHitBottom(piece)){
+                    piece = null;
+                    nTickCounter = 0;
+                    continue;
+                }
                 piece.forceDown();
             }
             if (keyController.isEscPressed()) {

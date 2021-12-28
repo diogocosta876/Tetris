@@ -43,7 +43,7 @@ public class Board {
         for (int y = 0; y < piece.getMatrix().length; y++) {
             for (int x = 0; x < piece.getMatrix()[y].length; x++) {
                 if (piece.getMatrix()[y][x] != "#000000") {
-                    if (!matrix[piece.getPos_y()][x + nextPosX].equals("#000000")) {
+                    if (!matrix[piece.getPos_y()+y][x + nextPosX].equals("#000000")) {
                         System.out.println("Cant move there");
                         return false;
                     }
