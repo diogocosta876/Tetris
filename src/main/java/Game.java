@@ -92,12 +92,12 @@ public class Game {
             }
 
             //input
-            if (keyController.isLeftPressed() && piece.getPos_x()>0 ) {  //TODO add method board.canMove()
+            if (keyController.isLeftPressed() && piece.getPos_x()>0 && board.canMove(piece.getPos_x()-1, piece)) {  //TODO add method board.canMove()
                 //System.out.println("left pressed");
                 //move left horizontally
                 piece.moveLeft();
             }
-            if (keyController.isRightPressed() && piece.getRightPos()<gameScreenWidth/2-1) {
+            if (keyController.isRightPressed() && piece.getRightPos()<gameScreenWidth/2-1 && board.canMove(piece.getPos_x()+1, piece)) {
                 //System.out.println("right pressed");
                 //move right horizontally
                 piece.moveRight();
