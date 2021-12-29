@@ -7,19 +7,15 @@ import javax.sql.rowset.spi.SyncResolver;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Piece {
-    private String[][] matrix;
-    private int pos_x = Game.getGameScreenWidth()/2;
-    private int pos_y =0;
-    private String color = "#0033CC";
+public abstract class Piece {
+    protected String[][] matrix;
+    protected int pos_x;
+    protected int pos_y;
+    protected String color;
 
     public Piece(){
-        int[][] matrixInt = new int[][]{
-                //Must be a square
-                {1,1},
-                {1,1}};
-
-        this.matrix = convertIntMatrixToStringMatrix(matrixInt);
+        pos_x = Game.getGameScreenWidth()/2;
+        pos_y = 0;
     }
 
     public String[][] convertIntMatrixToStringMatrix(int[][] matrix){
@@ -62,8 +58,6 @@ public class Piece {
     public int getRightPos(){
         return pos_x + getMatrix()[0].length -1;
     }
-
-
 
     public int getPos_x() {
         return pos_x;
