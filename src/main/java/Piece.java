@@ -50,6 +50,7 @@ public abstract class Piece {
     }
     public void moveLeft(){ pos_x-=1; }
     public void moveRight(){ pos_x+=1; }
+
     public void forceDown(){ pos_y++; }
 
     public int getBottomPos(){
@@ -58,16 +59,27 @@ public abstract class Piece {
     public int getRightPos(){
         return pos_x + getMatrix()[0].length -1;
     }
-
     public int getPos_x() {
         return pos_x;
     }
-
     public int getPos_y() {
         return pos_y;
     }
-
     public String[][] getMatrix() {
         return matrix;
+    }
+
+    public void rotate(){
+        String[][] rotatedMatrix = new String[matrix[0].length][matrix.length];
+        int column = matrix.length - 1;
+        for(String[] line: matrix){
+            for(int i =0; i<line.length;i++){
+                rotatedMatrix[i][column] = line[i];
+            }
+            column--;
+
+        }
+        matrix = rotatedMatrix;
+
     }
 }
