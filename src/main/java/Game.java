@@ -76,7 +76,7 @@ public class Game {
 
             //Game Logic
             //TODO game logic add here
-            if (piece == null) piece = new SquarePiece();
+            if (piece == null) piece = new ZPiece();
 
             if (nTickCounter == gameSpeed ) {
                 if(board.hasHitBottom(piece)){
