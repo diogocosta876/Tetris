@@ -5,6 +5,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import java.io.IOException;
+import java.util.Random;
 
 public class Game {
 
@@ -76,7 +77,12 @@ public class Game {
 
             //Game Logic
             //TODO game logic add here
-            if (piece == null) piece = new ZPiece();
+            if (piece == null){
+                Random random = new Random();
+                int x = random.nextInt(7);
+                Piece[] pieces = {new JPiece(), new LinePiece(), new LPiece(), new SPiece(), new SquarePiece(), new TPiece(), new ZPiece()};
+                piece = pieces[x];
+            }
 
             if (nTickCounter == gameSpeed ) {
                 if(board.hasHitBottom(piece)){
@@ -103,7 +109,7 @@ public class Game {
             }
             if (keyController.isUpPressed()) {
                 //System.out.println("up pressed");
-                //TODO Rotate
+                piece.rotate();
             }
             if (keyController.isDownPressed()) {
                 //force down
