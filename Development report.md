@@ -1,29 +1,32 @@
 ## LPOO_1305 - Tetris
 
-> Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
-
-**Example**:
-
 In this implementation of the world known phenomenon game called Tetris, you can feel the nostalgia of putting together all the pieces to survive as long as possible to have the highest score!
 
 This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*upx*xxxxxxxx) and *Manuel Amorim* (*upx*xxxxxxxx) for LDTS 2021/22.
 
+
+
 ### IMPLEMENTED FEATURES
 
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
+- **Piece Generation -** An piece chosen by random is placed on the game as the previous controlled piece piece is placed.
 
-- **model.Piece's Movement -** The Player can move the pieces horizontally, in order to line them up according to the player's strategy, he can also force the pieces down, as in the original tetris, to speed up the gameplay.
-- **ldts.model.Game Timing** - synchronized ticks determine the game pace, when the tick counter reaches a predetermined value, *gameSpeed*, the piece drops by one position.
+- **Piece's Movement -** The Player can move the pieces horizontally, in order to line them up according to the player's strategy, he can also force the pieces down, as in the original tetris, to speed up the gameplay.
+
+- **Piece's Collision Detection -** The game will detect if the Player tries to move the piece into an obstacle and **prevent it**. This happens when moving horizontally either into a wall or into another piece. 
+
+  The piece is also **locked** into the board if it's bottom collides either with the floor or into another piece.
+
+- **Game Timing** - synchronized ticks determine the game pace, when the tick counter reaches a predetermined value, *gameSpeed*, the piece drops by one position.
+
+  
 
 ### PLANNED FEATURES
-
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
 
 **UI Mockup**
 
 ![mockup](C:\Users\Diogo\Desktop\ldts-project-assignment-g1305\docs\mockup.png)
 
-**Next model.Piece Preview - **There should be a visible and intuitive preview window showing what the next piece to spawn is.
+**Piece Preview - **There should be a visible and intuitive preview window showing what the next piece to spawn is.
 
 **Score - ** The score should be shown to the user, points are awarded when:
 
@@ -31,52 +34,41 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 2- A full horizontal line is completed, disappearing.
 
+
+
 ### DESIGN
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
-
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
-
-**Example of one of such subsections**:
-
-------
-
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
+#### REFACTORING THE PROJECT TO FOLLOW THE MVC ARCHITECTURAL PATTERN
 
 **Problem in Context**
 
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
+While initially working on the project, we were finding ourselves struggling to effectively work on the project   all at the same time. On top of that, the complexity level was also rising and making our efforts less productive.
 
 **The Pattern**
 
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
+The **Model View Controller** (MVC) architectural pattern specifies that an application consist of a data model, information information, and information control. The pattern requires that each of these be separated into different objects.
 
 **Implementation**
 
-The following figure shows how the pattern’s roles were mapped to the application classes.
+The following image represents the different folders that were added to hold the function-specific classes.
 
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
-
-These classes can be found in the following files:
-
-- [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-- [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-- [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-- [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-- [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
+![img](https://web.fe.up.pt/~arestivo/presentation/assets/patterns/mvc.svg)
 
 **Consequences**
 
-The use of the State Pattern in the current design allows the following benefits:
+The use of the State Pattern in the current design has the following consequences:
 
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
-- There are now more classes and instances to manage, but still in a reasonable number.
+- **Easier planning** by giving us an outline of how to arrange their ideas into actual code and **easier maintenance** by limiting code duplication
+- **Easier modification** of the entire application as any changes in a certain section will never affect the entire architecture.
+- Allows for **easier collaboration** between the team members.
+- **Supports and encourages TTD** (test-driven development).
+- Required us to sometimes split what was previously **one class's functionality into 3 separate classes**, introducing dozens of classes and therefore some complexion.
 
-#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
+- Required a **heavy refactoring **of all the project's code.
+
+
+
+### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
 > This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
 
