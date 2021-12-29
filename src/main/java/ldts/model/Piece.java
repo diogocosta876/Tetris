@@ -1,3 +1,5 @@
+package ldts.model;
+
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -42,7 +44,7 @@ public abstract class Piece {
                 if(matrix[y][x/2]!="#000000") {
                     //TODO REMOVE LINE (on to debug)
                     screen.putString(new TerminalPosition(pos_x*2 + x + Game.getGameScreenXoffset(), pos_y + y + Game.getGameScreenYoffset()), Integer.toString(pos_x + x/2));
-                    //screen.putString(new TerminalPosition(pos_x*2 + x + Game.getGameScreenXoffset(), pos_y + y + Game.getGameScreenYoffset()), " ");
+                    //screen.putString(new TerminalPosition(pos_x*2 + x + ldts.model.Game.getGameScreenXoffset(), pos_y + y + ldts.model.Game.getGameScreenYoffset()), " ");
                     screen.putString(new TerminalPosition(pos_x*2 + x +1 + Game.getGameScreenXoffset(), pos_y + y + Game.getGameScreenYoffset()), " ");
                 }
             }

@@ -1,3 +1,8 @@
+package ldts;
+
+import ldts.controller.keyController;
+import ldts.model.Game;
+
 import java.io.IOException;
 
 public class Application {

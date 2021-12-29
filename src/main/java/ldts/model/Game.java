@@ -1,9 +1,14 @@
+package ldts.model;
+
 import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import ldts.controller.keyController;
+import ldts.model.pieces.*;
+
 import java.io.IOException;
 import java.util.Random;
 
@@ -75,7 +80,7 @@ public class Game {
                 Thread.sleep(100);
             } catch (InterruptedException ex) { ex.printStackTrace(); }
 
-            //Game Logic
+            //ldts.model.Game Logic
             //TODO game logic add here
             if (piece == null){
                 Random random = new Random();

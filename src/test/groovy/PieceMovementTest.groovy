@@ -1,10 +1,10 @@
+import ldts.model.Board
+import ldts.model.pieces.SquarePiece
 import spock.lang.Specification
-
-import java.awt.event.KeyEvent;
 
 class PieceMovementTest extends Specification{
 
-    def 'Piece Move Left'() {
+    def 'model.Piece Move Left'() {
         given:
         def piece = new SquarePiece();
         def board = new Board();
@@ -16,7 +16,7 @@ class PieceMovementTest extends Specification{
         then:
         piece.pos_x == initial_pos - 2
     }
-    def 'Piece Move Right'() {
+    def 'model.Piece Move Right'() {
         given:
         def piece = new SquarePiece();
         def board = new Board();
@@ -28,7 +28,7 @@ class PieceMovementTest extends Specification{
         then:
         piece.pos_x == initial_pos + 2
     }
-    def 'Piece Move Down'() {
+    def 'model.Piece Move Down'() {
         given:
         def piece = new SquarePiece();
         def board = new Board();

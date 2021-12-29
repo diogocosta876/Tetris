@@ -1,4 +1,8 @@
-public class ZPiece extends Piece{
+package ldts.model.pieces;
+
+import ldts.model.Piece;
+
+public class ZPiece extends Piece {
     public ZPiece(){
         super();
         color = "#F10000";

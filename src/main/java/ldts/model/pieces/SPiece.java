@@ -1,4 +1,8 @@
-public class SPiece extends Piece{
+package ldts.model.pieces;
+
+import ldts.model.Piece;
+
+public class SPiece extends Piece {
     public SPiece(){
         super();
         color = "#00F000";

@@ -12,8 +12,8 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
 
-- **Piece's Movement -** The Player can move the pieces horizontally, in order to line them up according to the player's strategy, he can also force the pieces down, as in the original tetris, to speed up the gameplay.
-- **Game Timing** - synchronized ticks determine the game pace, when the tick counter reaches a predetermined value, *gameSpeed*, the piece drops by one position.
+- **model.Piece's Movement -** The Player can move the pieces horizontally, in order to line them up according to the player's strategy, he can also force the pieces down, as in the original tetris, to speed up the gameplay.
+- **ldts.model.Game Timing** - synchronized ticks determine the game pace, when the tick counter reaches a predetermined value, *gameSpeed*, the piece drops by one position.
 
 ### PLANNED FEATURES
 
@@ -23,7 +23,7 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 ![mockup](C:\Users\Diogo\Desktop\ldts-project-assignment-g1305\docs\mockup.png)
 
-**Next Piece Preview - **There should be a visible and intuitive preview window showing what the next piece to spawn is.
+**Next model.Piece Preview - **There should be a visible and intuitive preview window showing what the next piece to spawn is.
 
 **Score - ** The score should be shown to the user, points are awarded when:
 

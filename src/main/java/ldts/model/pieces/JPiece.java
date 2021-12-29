@@ -1,4 +1,8 @@
-public class JPiece extends Piece{
+package ldts.model.pieces;
+
+import ldts.model.Piece;
+
+public class JPiece extends Piece {
     public JPiece(){
         super();
         color = "#F0F001";

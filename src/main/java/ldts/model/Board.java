@@ -1,10 +1,8 @@
+package ldts.model;
+
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
 
 public class Board {
     private String[][] matrix;
@@ -33,7 +31,7 @@ public class Board {
                 screen.setBackgroundColor(TextColor.Factory.fromString(matrix[y][x/2]));
                 //TODO REMOVE LINE (on to debug)
                 screen.putString(new TerminalPosition(x + Game.getGameScreenXoffset(), y + Game.getGameScreenYoffset()), Integer.toString(x/2));
-                //screen.putString(new TerminalPosition(x + Game.getGameScreenXoffset(), y + Game.getGameScreenYoffset()), ' ');
+                //screen.putString(new TerminalPosition(x + ldts.model.Game.getGameScreenXoffset(), y + ldts.model.Game.getGameScreenYoffset()), ' ');
                 screen.putString(new TerminalPosition(x+1 + Game.getGameScreenXoffset(), y + Game.getGameScreenYoffset()), " ");
             }
         }

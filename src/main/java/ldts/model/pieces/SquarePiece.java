@@ -1,4 +1,8 @@
-public class SquarePiece extends Piece{
+package ldts.model.pieces;
+
+import ldts.model.Piece;
+
+public class SquarePiece extends Piece {
 
     public SquarePiece(){
         super();
