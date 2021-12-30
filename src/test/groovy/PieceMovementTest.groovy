@@ -1,13 +1,13 @@
 import ldts.model.Board
-import ldts.model.pieces.SquarePiece
+import ldts.model.Piece
 import spock.lang.Specification
 
 class PieceMovementTest extends Specification{
 
     def 'model.Piece Move Left'() {
         given:
-        def piece = new SquarePiece();
-        def board = new Board();
+        def piece = new Piece()
+        def board = new Board(10,10)
 
         when:
         def initial_pos = piece.pos_x
@@ -18,8 +18,8 @@ class PieceMovementTest extends Specification{
     }
     def 'model.Piece Move Right'() {
         given:
-        def piece = new SquarePiece();
-        def board = new Board();
+        def piece = new Piece()
+        def board = new Board(10,10)
 
         when:
         def initial_pos = piece.pos_x
@@ -30,8 +30,8 @@ class PieceMovementTest extends Specification{
     }
     def 'model.Piece Move Down'() {
         given:
-        def piece = new SquarePiece();
-        def board = new Board();
+        def piece = new Piece()
+        def board = new Board(10,10)
 
         when:
         def initial_pos = piece.pos_y

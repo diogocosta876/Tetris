@@ -4,40 +4,40 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
+import ldts.model.MatrixOperations.*;
+import ldts.model.PieceStates.*;
 
-import javax.sql.rowset.spi.SyncResolver;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
-public abstract class Piece {
-    protected String[][] matrix;
-    protected int pos_x;
-    protected int pos_y;
-    protected String color;
+
+public class Piece {
+    private int pos_x;
+    private int pos_y;
+    private PieceState state;
+    private String[][] matrix;
 
     public Piece(){
         pos_x = Game.getGameScreenWidth()/2;
         pos_y = 0;
+
+        getRandomState();
+
+        matrix = state.getMatrix();
     }
 
-    public String[][] convertIntMatrixToStringMatrix(int[][] matrix){
-        String[][] pieceMatrix = new String[matrix.length][matrix[0].length];
+    private void getRandomState(){
+        Random random = new Random();
+        int x = random.nextInt(7);
+        PieceState[] states = {new JPiece(), new LinePiece(), new LPiece(), new SPiece(), new SquarePiece(), new TPiece(), new ZPiece()};
+        state = states[x];
+    }
 
-        for (int y = 0; y < matrix.length; y++){
-            for (int x = 0; x < matrix[y].length; x++){
-                if(matrix[y][x]==1) {
-                    pieceMatrix[y][x] = color;
-                }else{
-                    pieceMatrix[y][x] = "#000000";
-                }
-
-            }
-        }
-        return pieceMatrix;
+    public void rotate(){
+        matrix = RotateMatrix.execute(matrix);
     }
 
     public void draw(TextGraphics screen){
-        screen.setBackgroundColor(TextColor.Factory.fromString(color));
+        screen.setBackgroundColor(TextColor.Factory.fromString(state.getColor()));
 
         for(int y =0; y< matrix.length; y++){
             for (int x = 0; x < matrix[y].length*2; x+=2){
@@ -52,14 +52,13 @@ public abstract class Piece {
     }
     public void moveLeft(){ pos_x-=1; }
     public void moveRight(){ pos_x+=1; }
-
     public void forceDown(){ pos_y++; }
 
     public int getBottomPos(){
-        return pos_y + getMatrix().length -1;
+        return pos_y + matrix.length -1;
     }
     public int getRightPos(){
-        return pos_x + getMatrix()[0].length -1;
+        return pos_x + matrix[0].length -1;
     }
     public int getPos_x() {
         return pos_x;
@@ -70,18 +69,8 @@ public abstract class Piece {
     public String[][] getMatrix() {
         return matrix;
     }
-
-    public void rotate(){
-        String[][] rotatedMatrix = new String[matrix[0].length][matrix.length];
-        int column = matrix.length - 1;
-        for(String[] line: matrix){
-            for(int i =0; i<line.length;i++){
-                rotatedMatrix[i][column] = line[i];
-            }
-            column--;
-
-        }
-        matrix = rotatedMatrix;
-
+    public void setState(PieceState state) {
+        this.state = state;
     }
+
 }

@@ -7,7 +7,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import ldts.controller.keyController;
-import ldts.model.pieces.*;
+import ldts.model.PieceStates.*;
 
 import java.io.IOException;
 import java.util.Random;
@@ -80,14 +80,9 @@ public class Game {
                 Thread.sleep(100);
             } catch (InterruptedException ex) { ex.printStackTrace(); }
 
-            //ldts.model.Game Logic
-            //TODO game logic add here
+            //Game Logic
             if (piece == null){
-                Random random = new Random();
-                int x = random.nextInt(7);
-                Piece[] pieces = {new JPiece(), new LinePiece(), new LPiece(), new SPiece(), new SquarePiece(), new TPiece(), new ZPiece()};
-                piece = pieces[x];
-                System.out.println(board.checkLineCompletition());
+                piece = new Piece();
             }
 
             if (nTickCounter == gameSpeed ) {
@@ -119,13 +114,13 @@ public class Game {
             }
             if (keyController.isDownPressed()) {
                 //force down
-                //System.out.println("down pressed");
                 if(board.hasHitBottom(piece)){
                     piece = null;
                     nTickCounter = 0;
                     continue;
                 }
                 piece.forceDown();
+                nTickCounter = 0;
             }
             if (keyController.isEscPressed()) {
                 screen.close();
