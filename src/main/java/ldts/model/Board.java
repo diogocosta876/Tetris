@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+
 public class Board {
     private String[][] matrix;
 
@@ -80,6 +81,34 @@ public class Board {
             }
         }
 
+    }
+
+    public int checkLineCompletition(){
+        int counter = 0;
+        for (int y = 0; y < length; y++){
+            boolean fullprintedline = true;
+            for (int x = 0; x < width; x++){
+                if(matrix[y][x] == "#000000"){
+                    fullprintedline = false;
+                    break;
+                }
+            }
+            if(fullprintedline) {
+                counter++;
+                removeLine(y);
+                y--;
+            }
+        }
+        return counter;
+    }
+
+    public void removeLine(int y){
+        for(int line = y; line > 0; line--){
+            matrix[line]= matrix[line-1];
+        }
+        for(int column=0; column<width;column++){
+            matrix[0][column] = "#000000";
+        }
     }
 
 }

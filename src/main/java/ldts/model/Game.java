@@ -87,6 +87,7 @@ public class Game {
                 int x = random.nextInt(7);
                 Piece[] pieces = {new JPiece(), new LinePiece(), new LPiece(), new SPiece(), new SquarePiece(), new TPiece(), new ZPiece()};
                 piece = pieces[x];
+                System.out.println(board.checkLineCompletition());
             }
 
             if (nTickCounter == gameSpeed ) {
