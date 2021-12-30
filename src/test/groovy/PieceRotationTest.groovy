@@ -5,8 +5,10 @@ import spock.lang.Specification
 class PieceRotationTest extends Specification{
     def 'model.pieces.JPiece Rotation'(){
         given:
-        def piece = new Piece()
-        def c = piece.color;
+        def piece = new Piece();
+        def state = new JPiece();
+        piece.setState(state);
+        def c = state.getColor();
         def b = "#000000";
 
         when:
@@ -22,9 +24,10 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.LinePiece Rotation'(){
         given:
-        def piece = new Piece()
-        piece.state = new LinePiece()
-        def c = piece.color;
+        def piece = new Piece();
+        def state = new LinePiece();
+        piece.setState(state);
+        def c = state.color;
         def b = "#000000";
 
         when:
@@ -43,8 +46,10 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.LPiece Rotation'(){
         given:
-        def piece = new LPiece();
-        def c = piece.color;
+        def piece = new Piece();
+        def state = new LPiece();
+        piece.setState(state);
+        def c = state.color;
         def b = "#000000";
 
         when:
@@ -60,8 +65,10 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.SPiece Rotation'(){
         given:
-        def piece = new SPiece();
-        def c = piece.color;
+        def piece = new Piece();
+        def state = new SPiece();
+        piece.setState(state);
+        def c = state.color;
         def b = "#000000";
 
         when:
@@ -79,8 +86,10 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.TPiece Rotation'(){
         given:
-        def piece = new TPiece();
-        def c = piece.color;
+        def piece = new Piece();
+        def state = new TPiece();
+        piece.setState(state);
+        def c = state.color;
         def b = "#000000";
 
         when:
@@ -98,8 +107,10 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.ZPiece Rotation'(){
         given:
-        def piece = new ZPiece();
-        def c = piece.color;
+        def piece = new Piece();
+        def state = new ZPiece();
+        piece.setState(state);
+        def c = state.color;
         def b = "#000000";
 
         when:

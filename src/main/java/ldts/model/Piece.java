@@ -71,6 +71,7 @@ public class Piece {
     }
     public void setState(PieceState state) {
         this.state = state;
+        matrix = state.getMatrix();
     }
 
 }
