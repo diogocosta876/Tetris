@@ -1,15 +1,11 @@
-import ldts.model.pieces.JPiece
-import ldts.model.pieces.LPiece
-import ldts.model.pieces.LinePiece
-import ldts.model.pieces.SPiece
-import ldts.model.pieces.TPiece
-import ldts.model.pieces.ZPiece
+import ldts.model.Piece
+import ldts.model.PieceStates.*
 import spock.lang.Specification
 
 class PieceRotationTest extends Specification{
     def 'model.pieces.JPiece Rotation'(){
         given:
-        def piece = new JPiece();
+        def piece = new Piece()
         def c = piece.color;
         def b = "#000000";
 
@@ -26,7 +22,8 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.LinePiece Rotation'(){
         given:
-        def piece = new LinePiece();
+        def piece = new Piece()
+        piece.state = new LinePiece()
         def c = piece.color;
         def b = "#000000";
 
