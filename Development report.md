@@ -2,7 +2,7 @@
 
 In this implementation of the world known phenomenon game called Tetris, you can feel the nostalgia of putting together all the pieces to survive as long as possible to have the highest score!
 
-This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*upx*xxxxxxxx) and *Manuel Amorim* (*upx*xxxxxxxx) for LDTS 2021/22.
+This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*upx*xxxxxxxx) and *Manuel Amorim* (*up202007485*) for LDTS 2021/22.
 
 
 
@@ -26,7 +26,7 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 **UI Mockup**
 
-![mockup](C:\Users\Diogo\Desktop\ldts-project-assignment-g1305\docs\mockup.png)
+![mockup](docs/mockup.png)
 
 **Piece Preview - **There should be a visible and intuitive preview window showing what the next piece to spawn is.
 
