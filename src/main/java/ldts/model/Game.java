@@ -83,6 +83,7 @@ public class Game {
             //Game Logic
             if (piece == null){
                 piece = new Piece();
+                board.checkLineCompletition();
             }
 
             if (nTickCounter == gameSpeed ) {
