@@ -7,7 +7,6 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Board {
     private String[][] matrix;
-
     private int width;
     private int length;
 
@@ -24,18 +23,6 @@ public class Board {
             }
         }
         System.out.println("element added");
-    }
-
-    public void draw(TextGraphics screen) {
-        for (int y = 0; y < length; y++){
-            for (int x = 0; x < width*2; x+=2){
-                screen.setBackgroundColor(TextColor.Factory.fromString(matrix[y][x/2]));
-                //TODO REMOVE LINE (on to debug)
-                screen.putString(new TerminalPosition(x + Game.getGameScreenXoffset(), y + Game.getGameScreenYoffset()), Integer.toString(x/2));
-                //screen.putString(new TerminalPosition(x + ldts.model.Game.getGameScreenXoffset(), y + ldts.model.Game.getGameScreenYoffset()), ' ');
-                screen.putString(new TerminalPosition(x+1 + Game.getGameScreenXoffset(), y + Game.getGameScreenYoffset()), " ");
-            }
-        }
     }
 
     public boolean canMove(int nextPosX, Piece piece) {
@@ -109,6 +96,18 @@ public class Board {
         for(int column=0; column<width;column++){
             matrix[0][column] = "#000000";
         }
+    }
+
+    public String[][] getMatrix() {
+        return matrix;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getLength() {
+        return length;
     }
 
 }

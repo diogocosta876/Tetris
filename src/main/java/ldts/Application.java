@@ -1,5 +1,6 @@
 package ldts;
 
+import ldts.controller.GameController;
 import ldts.controller.keyController;
 import ldts.model.Game;
 
@@ -10,7 +11,7 @@ public class Application {
         keyController.controller_override();
 
         System.out.println("Hello World!");
-        Game game = new Game();
+        GameController game = new GameController();
         game.run();
     }
 }
