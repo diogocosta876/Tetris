@@ -90,7 +90,6 @@ public class Board implements BoardInterface{
         return counter;
     }
 
-
     public String[][] getMatrix() {
         return matrix;
     }

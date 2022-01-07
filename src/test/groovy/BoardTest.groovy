@@ -192,4 +192,5 @@ class BoardTest extends Specification {
         ]
 
     }
+
 }
