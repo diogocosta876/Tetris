@@ -31,7 +31,7 @@ public class BoardView extends View<Board>{
             for (int x = 0; x < width*2; x+=2){
                 screen.setBackgroundColor(TextColor.Factory.fromString(matrix[y][x/2]));
                 //TODO REMOVE LINE (on to debug)
-                screen.putString(new TerminalPosition(x + GameController.getGameScreenXoffset(), y + GameController.getGameScreenYoffset()), Integer.toString(x/2));
+                screen.putString(new TerminalPosition(x + GameController.getGameScreenXoffset(), y + GameController.getGameScreenYoffset()), " ");
                 //screen.putString(new TerminalPosition(x + ldts.model.Game.getGameScreenXoffset(), y + ldts.model.Game.getGameScreenYoffset()), ' ');
                 screen.putString(new TerminalPosition(x+1 + GameController.getGameScreenXoffset(), y + GameController.getGameScreenYoffset()), " ");
             }

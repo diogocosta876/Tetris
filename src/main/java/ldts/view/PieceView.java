@@ -38,7 +38,7 @@ public class PieceView extends View<Piece> {
             for (int x = 0; x < matrix[y].length * 2; x += 2) {
                 if (matrix[y][x / 2] != "#000000") {
                     //TODO REMOVE LINE (on to debug)
-                    screen.putString(new TerminalPosition(pos_x * 2 + x + GameController.getGameScreenXoffset(), pos_y + y + GameController.getGameScreenYoffset()), Integer.toString(pos_x + x / 2));
+                    screen.putString(new TerminalPosition(pos_x * 2 + x + GameController.getGameScreenXoffset(), pos_y + y + GameController.getGameScreenYoffset()), " ");
                     //screen.putString(new TerminalPosition(pos_x*2 + x + ldts.model.Game.getGameScreenXoffset(), pos_y + y + ldts.model.Game.getGameScreenYoffset()), " ");
                     screen.putString(new TerminalPosition(pos_x * 2 + x + 1 + GameController.getGameScreenXoffset(), pos_y + y + GameController.getGameScreenYoffset()), " ");
                 }
