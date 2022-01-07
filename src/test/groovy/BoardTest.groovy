@@ -135,7 +135,7 @@ class BoardTest extends Specification {
 
 
         when:
-        def result = board.checkLineCompletition();
+        def result = board.checkLineCompletition(new RemoveLine());
 
         then:
         result  == 2
@@ -158,12 +158,18 @@ class BoardTest extends Specification {
         def P = state2.color;
 
         def remover = Mock(RemoveLine)
-        remover.removeLine(_ as int,_ as String[][]) >> [
-                [b,b,c,b,b,b],
+        remover.removeLine(1,_ as String[][]) >> ([
+                [b,b,b,b,b,b],
                 [c,b,b,b,b,b],
                 [c,b,b,c,b,b],
-                [c,c,P,b,P,P],
-        ] as String[][]
+                [c,c,P,P,P,P],
+        ] as String[][])
+        remover.removeLine(3,_ as String[][]) >> ([
+                [b,b,b,b,b,b],
+                [b,b,b,b,b,b],
+                [c,b,b,b,b,b],
+                [c,b,b,c,b,b],
+        ] as String[][])
 
         def board = new Board(12,4);
         board.setMatrix([
@@ -175,10 +181,9 @@ class BoardTest extends Specification {
 
 
         when:
-        def result = board.checkLineCompletition();
+        def result = board.checkLineCompletition(remover);
 
         then:
-        result  == 2
         board.getMatrix()==[
                 [b,b,b,b,b,b],
                 [b,b,b,b,b,b],

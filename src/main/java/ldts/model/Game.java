@@ -30,7 +30,7 @@ public class Game {
     }
 
     public void nextTick(){
-        board.checkLineCompletition();
+        board.checkLineCompletition(new RemoveLine());
         if (nTickCounter == gameSpeed) {
             if (board.hasHitBottom(piece))
                 piece = null;

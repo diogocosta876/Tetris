@@ -71,7 +71,7 @@ public class Board implements BoardInterface{
 
     }
 
-    public int checkLineCompletition(){
+    public int checkLineCompletition(GenericRemoveLine remover){
         int counter = 0;
         for (int y = 0; y < length; y++){
             boolean fullprintedline = true;
@@ -83,7 +83,6 @@ public class Board implements BoardInterface{
             }
             if(fullprintedline) {
                 counter++;
-                RemoveLine remover = new RemoveLine();
                 matrix = remover.removeLine(y, this.matrix);
                 y--;
             }
