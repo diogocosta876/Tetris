@@ -14,7 +14,7 @@ class PieceMovementTest extends Specification{
         piece.moveLeft()
 
         then:
-        piece.pos_x == initial_pos - 2
+        piece.pos_x == initial_pos - 1
     }
     def 'model.Piece Move Right'() {
         given:
@@ -26,7 +26,7 @@ class PieceMovementTest extends Specification{
         piece.moveRight()
 
         then:
-        piece.pos_x == initial_pos + 2
+        piece.pos_x == initial_pos + 1
     }
     def 'model.Piece Move Down'() {
         given:
