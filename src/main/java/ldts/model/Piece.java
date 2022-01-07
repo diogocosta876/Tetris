@@ -17,8 +17,8 @@ public class Piece {
     private PieceState state;
     private String[][] matrix;
 
-    public Piece(){
-        pos_x = GameController.getGameScreenWidth()/2;
+    public Piece(int pos_x){
+        this.pos_x = pos_x;
         pos_y = 0;
 
         getRandomState();

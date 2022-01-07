@@ -5,7 +5,7 @@ import spock.lang.Specification
 class PieceRotationTest extends Specification{
     def 'model.pieces.JPiece Rotation'(){
         given:
-        def piece = new Piece();
+        def piece = new Piece(10);
         def state = new JPiece();
         piece.setState(state);
         def c = state.getColor();
@@ -24,7 +24,7 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.LinePiece Rotation'(){
         given:
-        def piece = new Piece();
+        def piece = new Piece(10);
         def state = new LinePiece();
         piece.setState(state);
         def c = state.color;
@@ -46,7 +46,7 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.LPiece Rotation'(){
         given:
-        def piece = new Piece();
+        def piece = new Piece(10);
         def state = new LPiece();
         piece.setState(state);
         def c = state.color;
@@ -65,7 +65,7 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.SPiece Rotation'(){
         given:
-        def piece = new Piece();
+        def piece = new Piece(10);
         def state = new SPiece();
         piece.setState(state);
         def c = state.color;
@@ -86,7 +86,7 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.TPiece Rotation'(){
         given:
-        def piece = new Piece();
+        def piece = new Piece(10);
         def state = new TPiece();
         piece.setState(state);
         def c = state.color;
@@ -107,7 +107,7 @@ class PieceRotationTest extends Specification{
 
     def 'model.pieces.ZPiece Rotation'(){
         given:
-        def piece = new Piece();
+        def piece = new Piece(10);
         def state = new ZPiece();
         piece.setState(state);
         def c = state.color;

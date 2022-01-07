@@ -4,7 +4,8 @@ import ldts.model.MatrixOperations.IntMatrixToString;
 
 public class LPiece implements PieceState {
     String color = "#F0A000";
-    int[][] matrix = new int[][]{ {1,0},
+    int[][] matrix = new int[][]{
+            {1,0},
             {1,0},
             {1,1}};
 

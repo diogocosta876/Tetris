@@ -5,7 +5,8 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 
-public class Board {
+
+public class Board implements BoardInterface{
     private String[][] matrix;
     private int width;
     private int length;
@@ -82,21 +83,14 @@ public class Board {
             }
             if(fullprintedline) {
                 counter++;
-                removeLine(y);
+                RemoveLine remover = new RemoveLine();
+                matrix = remover.removeLine(y, this.matrix);
                 y--;
             }
         }
         return counter;
     }
 
-    public void removeLine(int y){
-        for(int line = y; line > 0; line--){
-            matrix[line]= matrix[line-1];
-        }
-        for(int column=0; column<width;column++){
-            matrix[0][column] = "#000000";
-        }
-    }
 
     public String[][] getMatrix() {
         return matrix;
@@ -108,6 +102,10 @@ public class Board {
 
     public int getLength() {
         return length;
+    }
+
+    public void setMatrix(String[][] matrix){
+        this.matrix = matrix;
     }
 
 }

@@ -6,7 +6,7 @@ class PieceMovementTest extends Specification{
 
     def 'model.Piece Move Left'() {
         given:
-        def piece = new Piece()
+        def piece = new Piece(5)
         def board = new Board(10,10)
 
         when:
@@ -18,7 +18,7 @@ class PieceMovementTest extends Specification{
     }
     def 'model.Piece Move Right'() {
         given:
-        def piece = new Piece()
+        def piece = new Piece(5)
         def board = new Board(10,10)
 
         when:
@@ -30,7 +30,7 @@ class PieceMovementTest extends Specification{
     }
     def 'model.Piece Move Down'() {
         given:
-        def piece = new Piece()
+        def piece = new Piece(5)
         def board = new Board(10,10)
 
         when:

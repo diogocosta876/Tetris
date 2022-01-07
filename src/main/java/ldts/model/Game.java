@@ -43,7 +43,7 @@ public class Game {
     }
     public boolean isPieceNull(){
         if (piece == null) {
-            piece = new Piece();
+            piece = new Piece(gameScreenWidth/4);
             return true;
         }
         return false;
