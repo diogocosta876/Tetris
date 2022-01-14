@@ -1,7 +1,9 @@
 package ldts.model;
 
 public class Score {
-    private int score = 0;
+    private int score;
+
+    public Score(){score=0;}
 
     public void addToScore(int linesCompleted) {
         this.score += linesCompleted*10;
