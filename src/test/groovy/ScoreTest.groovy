@@ -6,9 +6,9 @@ class ScoreTest extends Specification{
         given:
         def score = new Score()
         when:
-        int linesCompleted = 3;
+        int linesCompleted = 3
         score.addToScore(linesCompleted)
         then:
-        score.getScore() == int 30
+        score.getScore() == 30
     }
 }
