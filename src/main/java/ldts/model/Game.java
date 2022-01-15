@@ -51,7 +51,7 @@ public class Game {
         return false;
     }
 
-    public void pressedleft(){
+    public void pressedLeft(){
          if (piece.getPos_x()>0 && board.canMove(piece.getPos_x()-1, piece))
             piece.moveLeft();
     }
@@ -76,5 +76,14 @@ public class Game {
     public Board getBoard() {
         return board;
     }
+<<<<<<< Updated upstream
     public Score getScore() { return score; }
+=======
+    public static int getGameSpeed() {
+        return gameSpeed;
+    }
+    public int getTickCount() {
+        return nTickCounter;
+    }
+>>>>>>> Stashed changes
 }

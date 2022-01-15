@@ -117,7 +117,7 @@ public class GameController extends Game{
 
     public void sendInputToModel() throws IOException {
         if (keyController.isLeftPressed()) {
-            game.pressedleft();
+            game.pressedLeft();
         }
         if (keyController.isRightPressed()) {
             game.pressedRight();
