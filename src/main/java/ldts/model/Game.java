@@ -10,6 +10,7 @@ import ldts.controller.GameController;
 import ldts.controller.keyController;
 import ldts.model.PieceStates.*;
 import ldts.view.PieceView;
+import ldts.model.Score;
 
 import java.io.IOException;
 import java.util.Random;
@@ -24,14 +25,14 @@ public class Game {
     protected static final int gameScreenLength = 26;
     protected static int gameSpeed = 5;  //smaller is faster, ticks needed to force piece down
     protected int nTickCounter = 0;
-    protected Score score;
+    protected Score score = new Score();
 
     public Game(){
         board = new Board(gameScreenWidth, gameScreenLength);
     }
 
     public void nextTick(){
-        board.checkLineCompletition(new RemoveLine());
+        score.addToScore(board.checkLineCompletition(new RemoveLine()));
         if (nTickCounter == gameSpeed) {
             if (board.hasHitBottom(piece))
                 piece = null;
@@ -75,4 +76,5 @@ public class Game {
     public Board getBoard() {
         return board;
     }
+    public Score getScore() { return score; }
 }

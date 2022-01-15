@@ -14,6 +14,7 @@ import ldts.model.Game;
 import ldts.model.Piece;
 import ldts.view.BoardView;
 import ldts.view.PieceView;
+import ldts.view.ScoreView;
 
 import java.io.IOException;
 
@@ -23,10 +24,12 @@ public class GameController extends Game{
     private Screen screen;
     private PieceView pieceview;
     private BoardView boardview;
+    private ScoreView scoreView;
 
     public GameController() {
         game = new Game();
         boardview = new BoardView(game.getBoard());
+        scoreView = new ScoreView(game.getScore());
         setup();
     }
 
@@ -91,14 +94,8 @@ public class GameController extends Game{
         screenGraphics.fillRectangle(new TerminalPosition(45, 7), new TerminalSize(20, 10), ' ');
 
         //SCORE - will need refactoring
-        screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
-        screenGraphics.putString(42, 18, "  ___  ___ ___  ___ ___");
-        screenGraphics.putString(42, 19, " / __|/ __/ _ \\| _ \\ __|");
-        screenGraphics.putString(42, 20, " \\__ \\ (_| (_) |   / _|");
-        screenGraphics.putString(42, 21, " |___/\\___\\___/|_|_\\___|");
-        screenGraphics.putString(52, 24, "0700", SGR.BOLD);
 
-
+        scoreView.draw(screenGraphics);
         boardview.draw(screenGraphics);
         pieceview.draw(screenGraphics);
 

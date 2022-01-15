@@ -87,6 +87,7 @@ public class Board implements BoardInterface{
                 y--;
             }
         }
+
         return counter;
     }
 

@@ -6,7 +6,7 @@ public class Score {
     public Score(){score=0;}
 
     public void addToScore(int linesCompleted) {
-        this.score += linesCompleted*10;
+        score += 10*linesCompleted;
     }
 
     public int getScore(){
