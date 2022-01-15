@@ -31,7 +31,7 @@ public class Board implements BoardInterface{
             for (int x = 0; x < piece.getMatrix()[y].length; x++) {
                 if (piece.getMatrix()[y][x] != "#000000") {
                     if (!matrix[piece.getPos_y()+y][x + nextPosX].equals("#000000")) {
-                        System.out.println("Cant move there");
+                        System.out.println("Can't move there");
                         return false;
                     }
                 }
@@ -87,6 +87,7 @@ public class Board implements BoardInterface{
                 y--;
             }
         }
+
         return counter;
     }
 
