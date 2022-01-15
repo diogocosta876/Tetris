@@ -76,14 +76,11 @@ public class Game {
     public Board getBoard() {
         return board;
     }
-<<<<<<< Updated upstream
     public Score getScore() { return score; }
-=======
     public static int getGameSpeed() {
         return gameSpeed;
     }
     public int getTickCount() {
         return nTickCounter;
     }
->>>>>>> Stashed changes
 }
