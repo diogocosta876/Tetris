@@ -13,6 +13,7 @@ import ldts.model.Board;
 import ldts.model.Game;
 import ldts.model.Piece;
 import ldts.view.BoardView;
+import ldts.view.NextPieceView;
 import ldts.view.PieceView;
 import ldts.view.ScoreView;
 
@@ -25,6 +26,7 @@ public class GameController extends Game{
     private PieceView pieceview;
     private BoardView boardview;
     private ScoreView scoreView;
+    private NextPieceView nextPieceView;
 
     public GameController() {
         game = new Game();
@@ -61,6 +63,7 @@ public class GameController extends Game{
             //Game Logic
             if (game.isPieceNull()) {
                 pieceview = new PieceView(game.getPiece());
+                nextPieceView = new NextPieceView(game.getNextPiece());
             }
             game.nextTick();
 
@@ -85,17 +88,11 @@ public class GameController extends Game{
         screenGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(80, 40), ' ');
 
         //NEXT PIECE - will need refactoring
-        screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
-        screenGraphics.putString(45, 2, " _  _ _____  _______   ");
-        screenGraphics.putString(45, 3, "| \\| | __\\ \\/ /_   _|");
-        screenGraphics.putString(45, 4, "| .` | _| >  <  | | ");
-        screenGraphics.putString(45, 5, "|_|\\_|___/_/\\_\\ |_|");
-        screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-        screenGraphics.fillRectangle(new TerminalPosition(45, 7), new TerminalSize(20, 10), ' ');
 
         //SCORE - will need refactoring
 
         scoreView.draw(screenGraphics);
+        nextPieceView.draw(screenGraphics);
         boardview.draw(screenGraphics);
         pieceview.draw(screenGraphics);
 

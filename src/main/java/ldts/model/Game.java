@@ -19,6 +19,7 @@ public class Game {
 
     protected Board board;
     protected Piece piece;
+    protected  Piece nextPiece;
     protected static final int gameScreenXoffset = 6;
     protected static final int gameScreenYoffset = 2;
     protected static final int gameScreenWidth = 26;
@@ -44,8 +45,15 @@ public class Game {
         }
     }
     public boolean isPieceNull(){
-        if (piece == null) {
+        if(nextPiece == null && piece == null){
             piece = new Piece(gameScreenWidth/4);
+            nextPiece = new Piece(gameScreenWidth/4);
+            return true;
+        }
+        if (piece == null) {
+            piece = nextPiece;
+            nextPiece = null;
+            nextPiece = new Piece(gameScreenWidth/4);
             return true;
         }
         return false;
@@ -73,6 +81,7 @@ public class Game {
     public Piece getPiece() {
         return piece;
     }
+    public Piece getNextPiece(){return nextPiece;}
     public Board getBoard() {
         return board;
     }
