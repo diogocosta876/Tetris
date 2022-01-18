@@ -26,10 +26,11 @@ public class Game {
     protected static final int gameScreenLength = 26;
     protected static int gameSpeed = 5;  //smaller is faster, ticks needed to force piece down
     protected int nTickCounter = 0;
-    protected Score score = new Score();
+    protected Score score;
 
     public Game(){
         board = new Board(gameScreenWidth, gameScreenLength);
+        score = new Score();
     }
 
     public void nextTick(){

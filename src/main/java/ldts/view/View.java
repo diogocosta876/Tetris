@@ -9,10 +9,6 @@ public abstract class View<T> {
     private Screen screen;
     protected TextGraphics graphics;
 
-    protected View(T model) {
-        this.model = model;
-    }
-
     protected View() {
     }
 }

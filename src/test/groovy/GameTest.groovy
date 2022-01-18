@@ -8,6 +8,7 @@ public class GameTest extends Specification {
     def 'nextTick'(){
         given:
         Game game = new Game()
+
         game.isPieceNull()
 
         when:
@@ -31,12 +32,16 @@ public class GameTest extends Specification {
         game.isPieceNull()
 
         when:
-        while(!game.board.hasHitBottom(game.piece)){
+        while(!game.getBoard().hasHitBottom(game.piece)){
             game.nextTick()
         }
+        then:
+        game.isPieceNull() == false
+
+        when:
         game.pressedDown()
         then:
-        game.isPieceNull()
+        game.isPieceNull() == true
     }
     def 'pressedLeft'(){
         given:
@@ -69,7 +74,9 @@ public class GameTest extends Specification {
         def initial_matrix = game.getPiece().getMatrix()
         game.pressedUp()
         then:
-        game.getPiece().getMatrix() != initial_matrix
+        if(game.getPiece().state.color!="#0033CC"){
+            game.getPiece().getMatrix() != initial_matrix
+        }
     }
     def 'pressedDown'(){
         given:
@@ -81,5 +88,58 @@ public class GameTest extends Specification {
         game.pressedDown()
         then:
         game.getPiece().getPos_y() == initial_pos_y + 1
+    }
+    def 'hasHitBottom Test'(){
+        given:
+        Game game = new Game()
+        game.isPieceNull()
+
+        when:
+        while(!game.getBoard().hasHitBottom(game.getPiece()) || game.getTickCount()!=5){
+            game.nextTick()
+        }
+        game.nextTick()
+
+
+        then:
+        System.out.println(game.getTickCount())
+        game.getPiece() == null
+
+    }
+
+    def 'Next Piece Test'(){
+        given:
+        Game game = new Game()
+
+        when:
+        game.getNextPiece()
+        then:
+        game.getNextPiece() == null
+
+        when:
+        game.isPieceNull()
+        while(!game.getBoard().hasHitBottom(game.getPiece()) || game.getTickCount()!=5){
+            game.nextTick()
+        }
+        game.nextTick()
+        def secondPiece = game.getNextPiece()
+        game.isPieceNull()
+
+        then:
+        game.getPiece() == secondPiece
+
+
+    }
+
+    def 'Initial Score Test'(){
+        given:
+        Game game = new Game()
+
+        when:
+        game.isPieceNull()
+
+        then:
+        game.getScore().getScore() ==0
+
     }
 }

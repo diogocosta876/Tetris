@@ -41,9 +41,6 @@ public class Piece {
     public void moveRight(){ pos_x+=1; }
     public void forceDown(){ pos_y++; }
 
-    public int getBottomPos(){
-        return pos_y + matrix.length -1;
-    }
     public int getRightPos(){
         return pos_x + matrix[0].length -1;
     }
