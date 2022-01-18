@@ -1,33 +1,26 @@
 import com.googlecode.lanterna.TerminalSize
-import com.googlecode.lanterna.TextCharacter
 import com.googlecode.lanterna.graphics.TextGraphics
+import com.googlecode.lanterna.screen.Screen
 import com.googlecode.lanterna.screen.TerminalScreen
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory
 import com.googlecode.lanterna.terminal.Terminal
-import javafx.stage.Screen
-import jdk.internal.cmm.SystemResourcePressureImpl
 import ldts.controller.GameController
+import ldts.model.Board
 import ldts.model.Piece
 import ldts.model.PieceStates.SquarePiece
+import ldts.view.BoardView
 import ldts.view.PieceView
 import spock.lang.Specification
 
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.Terminal;
-
-class PieceViewTest extends Specification{
-    def 'PieceView Test'(){
+class BoardViewTest extends Specification{
+    def 'BoardView Test'(){
         given:
         def piece = new Piece(0);
         def state = new SquarePiece();
         piece.setState(state);
+        def board = new Board(26,26);
+        board.addPiece(piece);
+
 
         Screen screen;
         Terminal terminal;
@@ -45,8 +38,8 @@ class PieceViewTest extends Specification{
         TextGraphics screenGraphics = screen.newTextGraphics();
 
         when:
-        PieceView pv = new PieceView(piece);
-        pv.draw(screenGraphics);
+        BoardView bv = new BoardView(board);
+        bv.draw(screenGraphics);
         screen.refresh();
 
         def i = GameController.gameScreenXoffset;
@@ -69,10 +62,6 @@ class PieceViewTest extends Specification{
         screenGraphics.getCharacter(i-1,j).backgroundColor.red==0;
         screenGraphics.getCharacter(i-1,j).backgroundColor.green==0;
         screenGraphics.getCharacter(i-1,j).backgroundColor.blue==0;
-
-
-
-
     }
 
 }
