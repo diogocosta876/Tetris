@@ -1,6 +1,6 @@
 package ldts.model;
 
-public class RemoveLine implements GenericRemoveLine{
+public class RemoveLine{
     public String[][] removeLine(int y, String[][] matrix) {
         for(int line = y; line > 0; line--){
             matrix[line]= matrix[line-1].clone();

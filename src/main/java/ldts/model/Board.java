@@ -71,7 +71,7 @@ public class Board implements BoardInterface{
 
     }
 
-    public int checkLineCompletition(GenericRemoveLine remover){
+    public int checkLineCompletition(RemoveLine remover){
         int counter = 0;
         for (int y = 0; y < length; y++){
             boolean fullprintedline = true;
