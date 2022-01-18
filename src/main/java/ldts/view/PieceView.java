@@ -9,7 +9,7 @@ import ldts.model.Piece;
 import ldts.model.PieceStates.PieceState;
 
 public class PieceView extends View<Piece> {
-
+    //Hola
     private String[][] matrix;
     private PieceState state;
     private int pos_x;

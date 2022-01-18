@@ -40,7 +40,6 @@ class PieceViewTest extends Specification{
 
         def i = GameController.gameScreenXoffset;
         def j = GameController.gameScreenYoffset;
-        def color = screenGraphics.getCharacter(i,j).backgroundColor.red;
 
         then:
         screenGraphics.getCharacter(i,j).backgroundColor.red==0
