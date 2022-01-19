@@ -115,6 +115,59 @@ class BoardTest extends Specification {
 
     }
 
+    def 'Can Rotate Test'(){
+        given:
+        def piece1 = new Piece(0);
+        def state1 = new LPiece();
+        piece1.setState(state1);
+        piece1.pos_x = 0;
+        piece1.pos_y = 0;
+
+        def piece2 = new Piece(2);
+        def state2 = new LinePiece();
+        piece2.setState(state2);
+        piece2.pos_x = 1;
+        piece2.pos_y = 1;
+
+        //matrix = [
+        //  [c,b,b,b,b,b],
+        //  [c,P,P,P,P,b],
+        //  [c,c,b,b,b,b]
+        // ];
+
+        def board = new Board(12,3);
+        board.addPiece(piece1);
+
+        when:
+        def result = board.canRotate(piece2)
+        then:
+        result == false;
+
+    }
+
+    def 'Can Rotate Test 2'(){
+        given:
+        def piece2 = new Piece(2);
+        def state2 = new LinePiece();
+        piece2.setState(state2);
+        piece2.pos_x = 1;
+        piece2.pos_y = 2;
+
+        //matrix = [
+        //  [b,b,b,b,b,b],
+        //  [b,b,b,b,b,b],
+        //  [b,P,P,P,P,b],
+        // ];
+
+        def board = new Board(12,3);
+
+        when:
+        def result = board.canRotate(piece2)
+        then:
+        result == false;
+
+    }
+
     def 'Check Line Completition'(){ //Without mock
         given:
         def state1 = new LPiece();
