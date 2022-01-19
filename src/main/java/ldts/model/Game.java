@@ -76,7 +76,9 @@ public class Game {
         nTickCounter = 0;
     }
     public void pressedUp(){
-        piece.rotate();
+        if(piece!=null && board.canRotate(piece)){
+            piece.rotate();
+        }
     }
 
     public Piece getPiece() {

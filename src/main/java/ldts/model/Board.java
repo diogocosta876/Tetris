@@ -3,7 +3,7 @@ package ldts.model;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-
+import ldts.model.MatrixOperations.RotateMatrix;
 
 
 public class Board implements BoardInterface{
@@ -38,6 +38,29 @@ public class Board implements BoardInterface{
             }
         }
         return true;
+    }
+
+    public boolean canRotate(Piece piece){
+        String[][] tempMatrix = piece.getMatrix().clone();
+        tempMatrix = RotateMatrix.execute(tempMatrix);
+
+        for (int y = 0; y < tempMatrix.length; y++) {
+            for (int x = 0; x < tempMatrix[y].length; x++) {
+                if (tempMatrix[y][x] != "#000000") {
+                    try{
+                        if (!matrix[piece.getPos_y()+y][piece.getPos_x() + x].equals("#000000")) {
+                            System.out.println("Can't rotate there");
+                            return false;
+                        }
+                    }catch(Exception e){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+
+
     }
 
     public boolean hasHitBottom(Piece piece){
