@@ -1,10 +1,7 @@
-import ldts.model.Board
-import ldts.model.Game;
-import ldts.model.Piece;
-import ldts.model.PieceStates.SquarePiece;
-import spock.lang.Specification;
+import ldts.model.Game
+import spock.lang.Specification
 
-public class GameTest extends Specification {
+class GameTest extends Specification {
     def 'nextTick'(){
         given:
         Game game = new Game()
@@ -12,7 +9,7 @@ public class GameTest extends Specification {
         game.isPieceNull()
 
         when:
-        game.nextTick();
+        game.nextTick()
 
         then:
         game.getTickCount() == 1

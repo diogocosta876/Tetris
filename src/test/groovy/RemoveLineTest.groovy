@@ -4,7 +4,7 @@ import spock.lang.Specification
 class RemoveLineTest extends Specification{
     def 'RemoveLine Test'(){
         given:
-        def b = "#000000";
+        def b = "#000000"
         def initial = [
                 ["a","a","a","a"],
                 ["b","a","b","b"],
@@ -21,7 +21,7 @@ class RemoveLineTest extends Specification{
                 [b,b,b,b],
                 ["a","a","a","a"],
                 ["c","d","a","a"]
-        ]
+        ] as String[][]
     }
 
 }

@@ -4,42 +4,41 @@ import ldts.model.PieceStates.SquarePiece
 import ldts.view.PieceView
 import spock.lang.Specification
 
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.graphics.TextGraphics
+import com.googlecode.lanterna.screen.Screen
+import com.googlecode.lanterna.TerminalSize
+import com.googlecode.lanterna.screen.TerminalScreen
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory
+import com.googlecode.lanterna.terminal.Terminal
 
 class PieceViewTest extends Specification{
     def 'PieceView Test'(){
         given:
-        def piece = new Piece(0);
-        def state = new SquarePiece();
-        piece.setState(state);
+        def piece = new Piece(0)
+        def state = new SquarePiece()
+        piece.setState(state)
 
-        Screen screen;
-        Terminal terminal;
+        Screen screen
+        Terminal terminal
         try {
-            TerminalSize terminalSize = new TerminalSize(70, 70);
-            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-            terminal = terminalFactory.createTerminal();
-            screen = new TerminalScreen(terminal);
-            screen.setCursorPosition(null);
-            screen.startScreen();
-            screen.doResizeIfNecessary();
+            TerminalSize terminalSize = new TerminalSize(70, 70)
+            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize)
+            terminal = terminalFactory.createTerminal()
+            screen = new TerminalScreen(terminal); screen.setCursorPosition(null)
+            screen.startScreen()
+            screen.doResizeIfNecessary()
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace()
         }
-        TextGraphics screenGraphics = screen.newTextGraphics();
+        TextGraphics screenGraphics = screen.newTextGraphics()
 
         when:
-        PieceView pv = new PieceView(piece);
-        pv.draw(screenGraphics);
-        screen.refresh();
+        PieceView pv = new PieceView(piece)
+        pv.draw(screenGraphics)
+        screen.refresh()
 
-        def i = GameController.gameScreenXoffset;
-        def j = GameController.gameScreenYoffset;
+        def i = GameController.gameScreenXoffset
+        def j = GameController.gameScreenYoffset
 
         then:
         screenGraphics.getCharacter(i,j).backgroundColor.red==0

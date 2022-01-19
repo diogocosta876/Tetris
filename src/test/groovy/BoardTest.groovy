@@ -10,40 +10,40 @@ import spock.lang.Specification
 class BoardTest extends Specification {
     def 'Add piece Test'(){
         given:
-        def piece = new Piece(2);
-        def state = new SquarePiece();
-        piece.setState(state);
-        def board = new Board(12,2);
+        def piece = new Piece(2)
+        def state = new SquarePiece()
+        piece.setState(state)
+        def board = new Board(12,2)
 
-        def c = state.color;
-        def b = "#000000";
+        def c = state.color
+        def b = "#000000"
 
         when:
-        piece.pos_x = 2;
-        piece.pos_y = 0;
-        board.addPiece(piece);
+        piece.pos_x = 2
+        piece.pos_y = 0
+        board.addPiece(piece)
 
         then:
         String[][] matrix = [
                 [b,b,c,c,b,b],
                 [b,b,c,c,b,b],
-        ];
-        board.getMatrix() == matrix;
+        ]
+        board.getMatrix() == matrix
     }
 
     def 'Can Move Test'(){
         given:
-        def piece1 = new Piece(0);
-        def state1 = new LPiece();
-        piece1.setState(state1);
-        piece1.pos_x = 0;
-        piece1.pos_y = 0;
+        def piece1 = new Piece(0)
+        def state1 = new LPiece()
+        piece1.setState(state1)
+        piece1.pos_x = 0
+        piece1.pos_y = 0
 
-        def piece2 = new Piece(2);
-        def state2 = new SquarePiece();
-        piece2.setState(state2);
-        piece2.pos_x = 2;
-        piece2.pos_y = 0;
+        def piece2 = new Piece(2)
+        def state2 = new SquarePiece()
+        piece2.setState(state2)
+        piece2.pos_x = 2
+        piece2.pos_y = 0
 
 
         //matrix = [
@@ -53,34 +53,34 @@ class BoardTest extends Specification {
         // ];
 
         when:
-        def board = new Board(12,3);
-        board.addPiece(piece1);
+        def board = new Board(12,3)
+        board.addPiece(piece1)
 
         then:
-        board.canMove(piece2.pos_x-1,piece2) == true;
+        board.canMove(piece2.pos_x-1,piece2) == true
 
         when:
-        piece2.pos_x-=1;
+        piece2.pos_x-=1
 
         then:
-        board.canMove(piece2.pos_x-1,piece2) == false;
+        board.canMove(piece2.pos_x-1,piece2) == false
 
 
     }
 
     def 'Has Hit Bottom Test'(){
         given:
-        def piece1 = new Piece(0);
-        def state1 = new LPiece();
-        piece1.setState(state1);
-        piece1.pos_x = 0;
-        piece1.pos_y = 0;
+        def piece1 = new Piece(0)
+        def state1 = new LPiece()
+        piece1.setState(state1)
+        piece1.pos_x = 0
+        piece1.pos_y = 0
 
-        def piece2 = new Piece(2);
-        def state2 = new LinePiece();
-        piece2.setState(state2);
-        piece2.pos_x = 2;
-        piece2.pos_y = 0;
+        def piece2 = new Piece(2)
+        def state2 = new LinePiece()
+        piece2.setState(state2)
+        piece2.pos_x = 2
+        piece2.pos_y = 0
 
         //matrix = [
         //  [c,b,P,P,P,P],
@@ -88,46 +88,46 @@ class BoardTest extends Specification {
         //  [c,c,b,b,b,b]
         // ];
 
-        def board = new Board(12,3);
-        board.addPiece(piece1);
+        def board = new Board(12,3)
+        board.addPiece(piece1)
 
         when:
         def result = board.hasHitBottom(piece2)
         then:
-        result == false;
+        result == false
 
         when:
-        piece2.pos_x-=1;
+        piece2.pos_x-=1
         then:
-        board.hasHitBottom(piece2)== false;
+        board.hasHitBottom(piece2)== false
 
         when:
-        piece2.pos_y+=1;
+        piece2.pos_y+=1
         then:
-        board.hasHitBottom(piece2)== true;
+        board.hasHitBottom(piece2)== true
 
         when:
-        piece2.pos_y+=1;
-        piece2.pos_x+=1;
+        piece2.pos_y+=1
+        piece2.pos_x+=1
         then:
-        board.hasHitBottom(piece2)== true;
+        board.hasHitBottom(piece2)== true
 
 
     }
 
     def 'Can Rotate Test'(){
         given:
-        def piece1 = new Piece(0);
-        def state1 = new LPiece();
-        piece1.setState(state1);
-        piece1.pos_x = 0;
-        piece1.pos_y = 0;
+        def piece1 = new Piece(0)
+        def state1 = new LPiece()
+        piece1.setState(state1)
+        piece1.pos_x = 0
+        piece1.pos_y = 0
 
-        def piece2 = new Piece(2);
-        def state2 = new LinePiece();
-        piece2.setState(state2);
-        piece2.pos_x = 1;
-        piece2.pos_y = 1;
+        def piece2 = new Piece(2)
+        def state2 = new LinePiece()
+        piece2.setState(state2)
+        piece2.pos_x = 1
+        piece2.pos_y = 1
 
         //matrix = [
         //  [c,b,b,b,b,b],
@@ -135,23 +135,23 @@ class BoardTest extends Specification {
         //  [c,c,b,b,b,b]
         // ];
 
-        def board = new Board(12,3);
-        board.addPiece(piece1);
+        def board = new Board(12,3)
+        board.addPiece(piece1)
 
         when:
         def result = board.canRotate(piece2)
         then:
-        result == false;
+        result == false
 
     }
 
     def 'Can Rotate Test 2'(){
         given:
-        def piece2 = new Piece(2);
-        def state2 = new LinePiece();
-        piece2.setState(state2);
-        piece2.pos_x = 1;
-        piece2.pos_y = 2;
+        def piece2 = new Piece(2)
+        def state2 = new LinePiece()
+        piece2.setState(state2)
+        piece2.pos_x = 1
+        piece2.pos_y = 2
 
         //matrix = [
         //  [b,b,b,b,b,b],
@@ -159,36 +159,36 @@ class BoardTest extends Specification {
         //  [b,P,P,P,P,b],
         // ];
 
-        def board = new Board(12,3);
+        def board = new Board(12,3)
 
         when:
         def result = board.canRotate(piece2)
         then:
-        result == false;
+        result == false
 
     }
 
     def 'Check Line Completition'(){ //Without mock
         given:
-        def state1 = new LPiece();
-        def state2 = new LinePiece();
+        def state1 = new LPiece()
+        def state2 = new LinePiece()
 
-        def b = "#000000";
-        def c = state1.color;
-        def P = state2.color;
+        def b = "#000000"
+        def c = state1.color
+        def P = state2.color
 
 
-        def board = new Board(12,4);
+        def board = new Board(12,4)
         board.setMatrix([
                   [c,b,b,b,b,b],
                   [c,c,c,c,c,c],
                   [c,b,b,c,b,b],
                   [c,c,P,P,P,P],
-                 ] as String[][]);
+                 ] as String[][])
 
 
         when:
-        def result = board.checkLineCompletition(new RemoveLine());
+        def result = board.checkLineCompletition(new RemoveLine())
 
         then:
         result  == 2
@@ -197,18 +197,18 @@ class BoardTest extends Specification {
                 [b,b,b,b,b,b],
                 [c,b,b,b,b,b],
                 [c,b,b,c,b,b],
-        ]
+        ] as String[][]
 
     }
 
     def 'Check Line Completition with RemoveLine Mock'(){
         given:
-        def state1 = new LPiece();
-        def state2 = new LinePiece();
+        def state1 = new LPiece()
+        def state2 = new LinePiece()
 
-        def b = "#000000";
-        def c = state1.color;
-        def P = state2.color;
+        def b = "#000000"
+        def c = state1.color
+        def P = state2.color
 
         def remover = Mock(RemoveLine)
         remover.removeLine(1,_ as String[][]) >> ([
@@ -224,17 +224,17 @@ class BoardTest extends Specification {
                 [c,b,b,c,b,b],
         ] as String[][])
 
-        def board = new Board(12,4);
+        def board = new Board(12,4)
         board.setMatrix([
                 [c,b,b,b,b,b],
                 [c,c,c,c,c,c],
                 [c,b,b,c,b,b],
                 [c,c,P,P,P,P],
-        ] as String[][]);
+        ] as String[][])
 
 
         when:
-        def result = board.checkLineCompletition(remover);
+        board.checkLineCompletition(remover)
 
         then:
         board.getMatrix()==[
@@ -242,7 +242,7 @@ class BoardTest extends Specification {
                 [b,b,b,b,b,b],
                 [c,b,b,b,b,b],
                 [c,b,b,c,b,b],
-        ]
+        ] as String[][]
 
     }
 

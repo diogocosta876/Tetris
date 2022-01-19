@@ -16,20 +16,20 @@ class NextPieceViewTest extends Specification{
         def state = new SquarePiece()
         nextPiece.setState(state)
 
-        Screen screen;
-        Terminal terminal;
+        Screen screen
+        Terminal terminal
         try {
-            TerminalSize terminalSize = new TerminalSize(70, 70);
-            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-            terminal = terminalFactory.createTerminal();
-            screen = new TerminalScreen(terminal);
-            screen.setCursorPosition(null);
-            screen.startScreen();
-            screen.doResizeIfNecessary();
+            TerminalSize terminalSize = new TerminalSize(70, 70)
+            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize)
+            terminal = terminalFactory.createTerminal()
+            screen = new TerminalScreen(terminal)
+            screen.setCursorPosition(null)
+            screen.startScreen()
+            screen.doResizeIfNecessary()
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace()
         }
-        TextGraphics screenGraphics = screen.newTextGraphics();
+        TextGraphics screenGraphics = screen.newTextGraphics()
 
         when:
         NextPieceView nextPieceView = new NextPieceView(nextPiece)

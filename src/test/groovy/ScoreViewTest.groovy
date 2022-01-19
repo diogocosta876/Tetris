@@ -35,7 +35,6 @@ class ScoreViewTest extends Specification{
         screen.refresh()
 
         then:
-
-        screenGraphics.getCharacter(52,24).character == "0"
+        screenGraphics.getCharacter(52,24).character == '0' as char
     }
 }
