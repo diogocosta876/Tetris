@@ -1,5 +1,6 @@
 package ldts.controller;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -8,8 +9,11 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import ldts.model.Order;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +33,15 @@ public class MenuController {
         try {
             TerminalSize terminalSize = new TerminalSize(75, 30);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+            terminalFactory.setForceAWTOverSwing(true);
+
+            try{
+            terminalFactory.setTerminalEmulatorFontConfiguration(loadFont());
+            }
+            catch(IOException | FontFormatException e){}
+
             Terminal terminal = terminalFactory.createTerminal();
+
             screen = new TerminalScreen(terminal);
             screen.setCursorPosition(null);
             screen.startScreen();
@@ -40,6 +52,23 @@ public class MenuController {
                 IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public AWTTerminalFontConfiguration loadFont() throws FontFormatException, IOException {
+        File fontFile = new File("src/main/resources/square.ttf");
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN,10);
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
+    }
+
+    private void drawText(TextGraphics textGraphics, int col, int row, String text, String color) {
+        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
+        textGraphics.enableModifiers(SGR.BOLD);
+        textGraphics.putString(col,row,text);
     }
 
     public void run() throws IOException{
@@ -86,9 +115,16 @@ public class MenuController {
 
         //future refactor
 
-        screenGraphics.putString(10,10,"0) Play Game");
-        screenGraphics.putString(10,15,"1) Change Difficulty");
-        screenGraphics.putString(10,20,"2) Exit");
+        screenGraphics.putString(7,3,"___________________________________________ .___   _________");
+        screenGraphics.putString(7,4,"\\__    ___/\\_   _____/\\__    ___/\\______   \\|   | /   _____/");
+        screenGraphics.putString(7,5,"  |    |    |    __)_   |    |    |       _/|   | \\_____  \\ ");
+        screenGraphics.putString(7,6,"  |    |    |        \\  |    |    |    |   \\|   | /        \\");
+        screenGraphics.putString(7,7,"  |____|   /_______  /  |____|    |____|_  /|___|/_______  /");
+        screenGraphics.putString(7,8,"                   \\/                    \\/              \\/ ");
+
+        drawText(screenGraphics,10,12,"0) Play Game","#FFFFFF");
+        drawText(screenGraphics,10,17,"1) Change Difficulty","#FFFFFF");
+        drawText(screenGraphics,10,22,"2) Exit","#FFFFFF");
         screen.refresh();
     }
 
