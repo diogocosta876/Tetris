@@ -63,18 +63,18 @@ public class InstructionsController {
         if (keyController.isZeroPressed()) {
             Order order = new HighDifficultyOrder(game);
             orderQueue.add(order);
-            Order undoOrder = new LowDifficultyOrder(game);
-            undoOrderQueue.add(undoOrder);
+            Order OrderToUndo = new HighDifficultyOrder(game);
+            undoOrderQueue.add(OrderToUndo);
         }
         else if (keyController.isOnePressed()) {
             Order order = new LowDifficultyOrder(game);
             orderQueue.add(order);
-            Order undoOrder = new HighDifficultyOrder(game);
-            undoOrderQueue.add(undoOrder);
+            Order OrderToUndo = new LowDifficultyOrder(game);
+            undoOrderQueue.add(OrderToUndo);
         }
         if (keyController.isTwoPressed()) {
             orderQueue.clear();
-            processOrders(undoOrderQueue);
+            processUndoOrders(undoOrderQueue,game);
             undoOrderQueue.clear();
         }
         if (keyController.isThreePressed()) {
@@ -107,6 +107,18 @@ public class InstructionsController {
     public void processOrders(List<Order> ordersQueue){
         for(Order order:ordersQueue){
             order.execute();
+        }
+    }
+    public void processUndoOrders(List<Order> ordersQueue,Game game){
+        for(Order order:ordersQueue){
+            if(order instanceof HighDifficultyOrder){
+                Order orderToUndo = new LowDifficultyOrder(game);
+                orderToUndo.execute();
+            }
+            else if(order instanceof LowDifficultyOrder){
+                Order orderToUndo = new HighDifficultyOrder(game);
+                orderToUndo.execute();
+            }
         }
     }
     public void setOn(){
