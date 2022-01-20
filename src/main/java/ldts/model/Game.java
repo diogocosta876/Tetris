@@ -95,4 +95,22 @@ public class Game {
     public int getTickCount() {
         return nTickCounter;
     }
+    public boolean increaseGameSpeed(){
+        if(gameSpeed > 1){
+            gameSpeed--;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean decreaseGameSpeed(){
+        if(gameSpeed<10){
+            gameSpeed++;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

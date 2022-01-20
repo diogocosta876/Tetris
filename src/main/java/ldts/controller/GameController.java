@@ -1,5 +1,5 @@
 package ldts.controller;
-import com.googlecode.lanterna.SGR;
+
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -8,9 +8,7 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import ldts.model.Board;
 import ldts.model.Game;
-import ldts.model.Piece;
 import ldts.view.BoardView;
 import ldts.view.NextPieceView;
 import ldts.view.PieceView;
@@ -27,11 +25,12 @@ public class GameController extends Game{
     private ScoreView scoreView;
     private NextPieceView nextPieceView;
 
-    public GameController() {
+    public GameController(Screen scr) {
         game = new Game();
         boardview = new BoardView(game.getBoard());
         scoreView = new ScoreView(game.getScore());
-        setup();
+        screen = scr;
+        //setup();
     }
 
     public void setup() {
@@ -126,8 +125,14 @@ public class GameController extends Game{
         }
         if (keyController.isEscPressed()) {
             on = false;
-            screen.close();
         }
     }
 
+    public void setOn() {
+        on = true;
+    }
+
+    public Game getGame() {
+        return game;
+    }
 }
