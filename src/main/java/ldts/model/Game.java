@@ -24,7 +24,7 @@ public class Game {
     protected static final int gameScreenYoffset = 2;
     protected static final int gameScreenWidth = 26;
     protected static final int gameScreenLength = 26;
-    protected static int gameSpeed = 5;  //smaller is faster, ticks needed to force piece down
+    protected int gameSpeed = 5;  //smaller is faster, ticks needed to force piece down
     protected int nTickCounter = 0;
     protected Score score;
 
@@ -89,10 +89,29 @@ public class Game {
         return board;
     }
     public Score getScore() { return score; }
-    public static int getGameSpeed() {
+    public int getGameSpeed() {
         return gameSpeed;
     }
     public int getTickCount() {
         return nTickCounter;
+    }
+
+    public boolean increaseGameSpeed(){
+        if(gameSpeed > 1){
+            gameSpeed--;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean decreaseGameSpeed(){
+        if(gameSpeed<10){
+            gameSpeed++;
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

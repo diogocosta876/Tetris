@@ -7,7 +7,7 @@ public class HighDifficultyOrder implements Order{
 
     @Override
     public void execute() {
-
+        game.increaseGameSpeed();
     }
 
 }

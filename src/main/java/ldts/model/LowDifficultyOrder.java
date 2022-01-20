@@ -8,7 +8,7 @@ public class LowDifficultyOrder implements Order{
 
     @Override
     public void execute() {
-
+        game.decreaseGameSpeed();
     }
 
 }
