@@ -50,7 +50,7 @@ public class InstructionsController {
         screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
         screenGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(80, 40), ' ');
 
-        screenGraphics.putString(10,3, checkDifficultyChanges());
+        //screenGraphics.putString(10,3, checkDifficultyChanges());
 
         screenGraphics.putString(10,10,"0) Increase Difficulty");
         screenGraphics.putString(10,15,"1) Decrease Difficulty");
@@ -59,31 +59,47 @@ public class InstructionsController {
         screen.refresh();
     }
 
-    public void inputReceiver() throws IOException{
+    public boolean inputReceiver() throws IOException{
         if (keyController.isZeroPressed()) {
-            Order order = new HighDifficultyOrder(game);
-            orderQueue.add(order);
-            Order OrderToUndo = new HighDifficultyOrder(game);
-            undoOrderQueue.add(OrderToUndo);
+            if(game.getGameSpeed()-1 >= 1){
+                Order order = new HighDifficultyOrder(game);
+                orderQueue.add(order);
+                Order OrderToUndo = new HighDifficultyOrder(game);
+                undoOrderQueue.add(OrderToUndo);
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         else if (keyController.isOnePressed()) {
-            Order order = new LowDifficultyOrder(game);
-            orderQueue.add(order);
-            Order OrderToUndo = new LowDifficultyOrder(game);
-            undoOrderQueue.add(OrderToUndo);
+            if(game.getGameSpeed()+1 <= 10){
+                Order order = new LowDifficultyOrder(game);
+                orderQueue.add(order);
+                Order OrderToUndo = new LowDifficultyOrder(game);
+                undoOrderQueue.add(OrderToUndo);
+                return true;
+            }
+            else{
+                return false;
+            }
         }
-        if (keyController.isTwoPressed()) {
+        else if (keyController.isTwoPressed()) {
             orderQueue.clear();
             processUndoOrders(undoOrderQueue,game);
             undoOrderQueue.clear();
+            return true;
         }
-        if (keyController.isThreePressed()) {
+        else if (keyController.isThreePressed()) {
             processOrders(orderQueue);
+            orderQueue.clear();
             on=false;
+            return true;
         }
+        return true;
     }
 
-    public String checkDifficultyChanges(){
+    public String checkDifficultyChanges(int gameSpeed){
         int counter = 0;
         for(Order order:orderQueue){
             if(order instanceof HighDifficultyOrder ){
@@ -94,13 +110,13 @@ public class InstructionsController {
             }
         }
         if(counter>0){
-            return "Difficulty will be lower";
+            return "Low Difficulty";
         }
         else if(counter<0){
-            return "Difficulty will be higher";
+            return "High Difficulty";
         }
         else{
-            return "Difficulty will remain the same";
+            return "No Changes Made";
         }
     }
 
