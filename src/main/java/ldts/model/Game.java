@@ -61,14 +61,16 @@ public class Game {
     }
 
     public void pressedLeft(){
-         if (piece.getPos_x()>0 && board.canMove(piece.getPos_x()-1, piece))
+         if (piece!=null && piece.getPos_x()>0 && board.canMove(piece.getPos_x()-1, piece))
             piece.moveLeft();
     }
     public void pressedRight(){
-        if (piece.getRightPos()<gameScreenWidth/2-1 && board.canMove(piece.getPos_x()+1, piece))
+        if (piece!=null && piece.getRightPos()<gameScreenWidth/2-1 && board.canMove(piece.getPos_x()+1, piece))
             piece.moveRight();
     }
     public void pressedDown(){
+        if(piece==null) return;
+
         if(board.hasHitBottom(piece))
             piece = null;
         else
