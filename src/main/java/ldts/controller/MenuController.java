@@ -22,6 +22,7 @@ import java.util.List;
 public class MenuController {
 
     boolean on = true;
+    boolean gameOverOn=false;
     private Screen screen;
     private GameController gameController;
     private InstructionsController instructionsMenu;
@@ -132,10 +133,11 @@ public class MenuController {
 
     public void checkGameOver(){
         if(gameController.getGame().gameOver()){
-
+        gameOverOn = true;
             try{
-                while(!gameOverInputReceiver()){
+                while(gameOverOn){
                     drawGameOver();
+                    gameOverInputReceiver();
                 }
             }
             catch(IOException e){}
@@ -159,10 +161,12 @@ public class MenuController {
         if (keyController.isZeroPressed()) {
             gameController = new GameController(screen);
             instructionsMenu = new InstructionsController(screen,gameController.getGame());
+            gameOverOn=false;
             gameController.run();
             return true;
         }
         else if (keyController.isOnePressed()) {
+            gameOverOn=false;
             on = false;
             screen.close();
             return true;
