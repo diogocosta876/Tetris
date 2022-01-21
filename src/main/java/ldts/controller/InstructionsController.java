@@ -61,7 +61,7 @@ public class InstructionsController {
 
     public boolean inputReceiver() throws IOException{
         if (keyController.isZeroPressed()) {
-            if(game.getGameSpeed()-1 >= 1){
+            if(game.getGameSpeed() > 1){
                 Order order = new HighDifficultyOrder(game);
                 orderQueue.add(order);
                 Order OrderToUndo = new HighDifficultyOrder(game);
@@ -73,7 +73,7 @@ public class InstructionsController {
             }
         }
         else if (keyController.isOnePressed()) {
-            if(game.getGameSpeed()+1 <= 10){
+            if(game.getGameSpeed() < 10){
                 Order order = new LowDifficultyOrder(game);
                 orderQueue.add(order);
                 Order OrderToUndo = new LowDifficultyOrder(game);

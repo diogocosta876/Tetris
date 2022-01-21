@@ -5,6 +5,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.graphics.TextImage;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -55,13 +56,13 @@ public class MenuController {
     }
 
     public AWTTerminalFontConfiguration loadFont() throws FontFormatException, IOException {
-        File fontFile = new File("src/main/resources/square.ttf");
+        File fontFile = new File("src/main/resources/8bit.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN,10);
+        Font loadedFont = font.deriveFont(Font.PLAIN,20);
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
@@ -105,7 +106,6 @@ public class MenuController {
         }
     }
 
-
     public void draw() throws IOException{
         screen.clear();
 
@@ -115,18 +115,17 @@ public class MenuController {
 
         //future refactor
 
-        screenGraphics.putString(7,3,"___________________________________________ .___   _________");
-        screenGraphics.putString(7,4,"\\__    ___/\\_   _____/\\__    ___/\\______   \\|   | /   _____/");
-        screenGraphics.putString(7,5,"  |    |    |    __)_   |    |    |       _/|   | \\_____  \\ ");
-        screenGraphics.putString(7,6,"  |    |    |        \\  |    |    |    |   \\|   | /        \\");
-        screenGraphics.putString(7,7,"  |____|   /_______  /  |____|    |____|_  /|___|/_______  /");
-        screenGraphics.putString(7,8,"                   \\/                    \\/              \\/ ");
+        screenGraphics.putString(7,3,"___________________________________________ .___   _________",SGR.BOLD);
+        screenGraphics.putString(7,4,"\\__    ___/\\_   _____/\\__    ___/\\______   \\|   | /   _____/",SGR.BOLD);
+        screenGraphics.putString(7,6,"  |    |    |        \\  |    |    |    |   \\|   | /        \\",SGR.BOLD);
+        screenGraphics.putString(7,5,"  |    |    |    __)_   |    |    |       _/|   | \\_____  \\ ",SGR.BOLD);
+        screenGraphics.putString(7,7,"  |____|   /_______  /  |____|    |____|_  /|___|/_______  /",SGR.BOLD);
+        screenGraphics.putString(7,8,"                   \\/                    \\/              \\/ ",SGR.BOLD);
+
 
         drawText(screenGraphics,10,12,"0) Play Game","#FFFFFF");
         drawText(screenGraphics,10,17,"1) Change Difficulty","#FFFFFF");
         drawText(screenGraphics,10,22,"2) Exit","#FFFFFF");
         screen.refresh();
     }
-
-
 }
