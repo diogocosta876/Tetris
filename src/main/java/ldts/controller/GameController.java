@@ -9,10 +9,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import ldts.model.Game;
-import ldts.view.BoardView;
-import ldts.view.NextPieceView;
-import ldts.view.PieceView;
-import ldts.view.ScoreView;
+import ldts.view.*;
 
 import java.io.IOException;
 
