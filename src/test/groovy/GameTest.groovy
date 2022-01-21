@@ -103,7 +103,28 @@ class GameTest extends Specification {
         game.getPiece() == null
 
     }
+    def 'Initial Score Test'(){
+        given:
+        Game game = new Game()
 
+        when:
+        game.isPieceNull()
+
+        then:
+        game.getScore().getScore() ==0
+
+    }
+    def 'Initial Game Over Test'(){
+        given:
+        Game game = new Game()
+
+        when:
+        def result = game.gameOver()
+
+        then:
+        result == false
+
+    }
     def 'Next Piece Test'(){
         given:
         Game game = new Game()
@@ -128,15 +149,5 @@ class GameTest extends Specification {
 
     }
 
-    def 'Initial Score Test'(){
-        given:
-        Game game = new Game()
 
-        when:
-        game.isPieceNull()
-
-        then:
-        game.getScore().getScore() ==0
-
-    }
 }

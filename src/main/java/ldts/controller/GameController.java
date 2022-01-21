@@ -50,6 +50,12 @@ public class GameController extends Game{
 
     public void run() throws IOException {
         while (on) {
+            if(game.gameOver()){
+                System.out.println("Game Over");
+                on = false;
+                break;
+            }
+
 
             //game timing
             try {
