@@ -37,7 +37,7 @@ public class MenuController {
             terminalFactory.setForceAWTOverSwing(true);
 
             try{
-            terminalFactory.setTerminalEmulatorFontConfiguration(loadFont());
+            terminalFactory.setTerminalEmulatorFontConfiguration(loadFont("8bit.ttf"));
             }
             catch(IOException | FontFormatException e){}
 
@@ -55,8 +55,8 @@ public class MenuController {
         }
     }
 
-    public AWTTerminalFontConfiguration loadFont() throws FontFormatException, IOException {
-        File fontFile = new File("src/main/resources/8bit.ttf");
+    public AWTTerminalFontConfiguration loadFont(String string) throws FontFormatException, IOException {
+        File fontFile = new File("src/main/resources/" + string);
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();

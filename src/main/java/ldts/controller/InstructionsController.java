@@ -17,7 +17,7 @@ public class InstructionsController {
     boolean on = true;
     private Screen screen;
     private Game game;
-    List<Order> orderQueue;
+    public List<Order> orderQueue;
     List<Order> undoOrderQueue = new ArrayList<>();
 
     public InstructionsController(Screen scr, Game gm){
@@ -99,7 +99,7 @@ public class InstructionsController {
         return true;
     }
 
-    public String checkDifficultyChanges(int gameSpeed){
+    public String checkDifficultyChanges(){
         int counter = 0;
         for(Order order:orderQueue){
             if(order instanceof HighDifficultyOrder ){
