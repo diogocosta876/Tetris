@@ -10,4 +10,5 @@ public interface BoardInterface {
     boolean hasHitBottom(Piece piece);//CHECKS IF PIECE HAS HIT THE BOTTOM OR A BOTTOM PIECE
     int checkLineCompletition(RemoveLine remover);
     boolean canRotate(Piece piece);
+    boolean gameOver();
 }

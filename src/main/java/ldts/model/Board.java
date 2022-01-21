@@ -130,4 +130,13 @@ public class Board implements BoardInterface{
         this.matrix = matrix;
     }
 
+    public boolean gameOver(){
+        for (int x = 0; x < width; x++){
+            if(matrix[0][x] != "#000000"){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

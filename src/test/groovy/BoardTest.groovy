@@ -246,4 +246,25 @@ class BoardTest extends Specification {
 
     }
 
+    def 'Game Over Test'(){
+        given:
+        def state1 = new LPiece()
+
+        def b = "#000000"
+        def c = state1.color
+
+
+        def board = new Board(12,4)
+        board.setMatrix([
+                [c,b,b,b,b,b],
+                [c,c,c,c,c,c],
+        ] as String[][])
+
+
+        when:
+        def result = board.gameOver()
+
+        then:
+        result  == true
+    }
 }

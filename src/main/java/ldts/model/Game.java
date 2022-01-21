@@ -97,7 +97,7 @@ public class Game {
     public int getTickCount() {
         return nTickCounter;
     }
-
+    public boolean gameOver(){return board.gameOver();}
     public void increaseGameSpeed(){
         gameSpeed--;
     }
