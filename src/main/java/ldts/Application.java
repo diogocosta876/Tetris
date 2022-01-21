@@ -1,7 +1,9 @@
 package ldts;
 
+import ldts.controller.GameController;
 import ldts.controller.MenuController;
 import ldts.controller.keyController;
+import ldts.model.Game;
 
 import java.io.IOException;
 
@@ -10,7 +12,9 @@ public class Application {
         keyController.controller_override();
 
         System.out.println("Hello World!");
+        //GameController game = new GameController();
         MenuController menu = new MenuController();
         menu.run();
     }
+
 }

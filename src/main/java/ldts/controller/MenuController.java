@@ -63,7 +63,7 @@ public class MenuController {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN,25);
+        Font loadedFont = font.deriveFont(Font.PLAIN,20);
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
@@ -123,6 +123,7 @@ public class MenuController {
         screenGraphics.putString(7,5,"  |    |    |    __)_   |    |    |       _/|   | \\_____  \\ ",SGR.BOLD);
         screenGraphics.putString(7,7,"  |____|   /_______  /  |____|    |____|_  /|___|/_______  /",SGR.BOLD);
         screenGraphics.putString(7,8,"                   \\/                    \\/              \\/ ",SGR.BOLD);
+
 
         drawText(screenGraphics,10,12,"0) Play Game","#FFFFFF");
         drawText(screenGraphics,10,17,"1) Change Difficulty","#FFFFFF");
