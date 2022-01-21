@@ -99,9 +99,13 @@ public class Game {
     }
     public boolean gameOver(){return board.gameOver();}
     public void increaseGameSpeed(){
-        gameSpeed--;
+        if(gameSpeed>1){
+            gameSpeed--;
+        }
     }
     public void decreaseGameSpeed(){
-        gameSpeed++;
+        if(gameSpeed<10){
+            gameSpeed++;
+        }
     }
 }

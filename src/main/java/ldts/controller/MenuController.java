@@ -80,6 +80,7 @@ public class MenuController {
                 ex.printStackTrace();
             }
             inputReceiver();
+            checkGameOver();
             try {
                 draw();
             } catch (IOException ex) {
@@ -127,5 +128,45 @@ public class MenuController {
         drawText(screenGraphics,10,17,"1) Change Difficulty","#FFFFFF");
         drawText(screenGraphics,10,22,"2) Exit","#FFFFFF");
         screen.refresh();
+    }
+
+    public void checkGameOver(){
+        if(gameController.getGame().gameOver()){
+
+            try{
+                while(!gameOverInputReceiver()){
+                    drawGameOver();
+                }
+            }
+            catch(IOException e){}
+        }
+    }
+
+    public void drawGameOver() throws IOException{
+        screen.clear();
+        //initialize and draw background
+        TextGraphics screenGraphics = screen.newTextGraphics();
+        screenGraphics.setBackgroundColor(TextColor.Factory.fromString("#3A3A3A"));
+        screenGraphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(80, 40), ' ');
+        screenGraphics.putString(15,7,"GAME OVER", SGR.BOLD);
+        screenGraphics.putString(15,12,"0) Play Again");
+        screenGraphics.putString(15,17,"1) Exit");
+
+        screen.refresh();
+    }
+
+    public boolean gameOverInputReceiver() throws IOException{
+        if (keyController.isZeroPressed()) {
+            gameController = new GameController(screen);
+            instructionsMenu = new InstructionsController(screen,gameController.getGame());
+            gameController.run();
+            return true;
+        }
+        else if (keyController.isOnePressed()) {
+            on = false;
+            screen.close();
+            return true;
+        }
+        return false;
     }
 }
