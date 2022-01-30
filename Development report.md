@@ -14,29 +14,13 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 - **Piece's Movement -** The Player can move the pieces horizontally, in order to line them up according to the player's strategy, he can also force the pieces down, as in the original tetris, to speed up the gameplay.
 
-- **Piece's Collision Detection -** The game will detect if the Player tries to move the piece into an obstacle and **prevent it**. This happens when moving horizontally either into a wall or into another piece. 
+- **Piece's Collision Detection -** The game will detect if the Player tries to move, or rotate, the piece into an obstacle and **prevent it**. This happens when moving horizontally either into a wall or into another piece. 
 
   The piece is also **locked** into the board if it's bottom collides either with the floor or into another piece.
 
 - **Game Timing** - synchronized ticks determine the game pace, when the tick counter reaches a predetermined value, *gameSpeed*, the piece drops by one position.
-
-  
-
-### PLANNED FEATURES
-
-**UI Mockup**
-
-![mockup](docs/mockup.png)
-
-**Piece Preview - **There should be a visible and intuitive preview window showing what the next piece to spawn is.
-
-**Score - ** The score should be shown to the user, points are awarded when:
-
-1- A piece falls and sticks do the bottom/other pieces
-
-2- A full horizontal line is completed, disappearing.
-
-
+- **Game Over** - The game will detect when the player loses the game, in other words when the static pieces reach the top of the board. In this moment a new screen appears asking if the player wants to play again or exit.
+- **Difficulty Controls** - The game allows difficulty changes during the gameplay, as well as an option to undo previous alterations.
 
 ### DESIGN
 
@@ -66,7 +50,7 @@ The use of the State Pattern in the current design has the following consequence
 - **Supports and encourages TTD** (test-driven development)
 - Required us to sometimes split what was previously **one class's functionality into 3 separate classes**, introducing dozens of classes and therefore some complexion
 
-- Required a **heavy refactoring **of all the project's code
+- Required a **heavy refactoring** of all the project's code
 
 ------
 
@@ -90,7 +74,8 @@ If we have to change behavior of an object based on its state, we can have a **s
 
 The following UML representation shows how the different classes connect themselves. An interface forces the state classes to implement the methods needed to be a state object for the piece Class. If the random algorithm chooses a certain class, for example Lpiece, an instance of this class will be stored as state on the Piece instance that represents the moving piece in the game and the rest of the program will be able to access this state's specific attributes.
 
-![piece state.drawio](C:\Users\Diogo\Desktop\ldts-project-assignment-g1305\docs\piece state.drawio.png)
+
+![piece state.drawio](docs\piece state.drawio.png)
 
 
 
@@ -100,34 +85,77 @@ The use of the State Pattern in the current design has the following consequence
 
 - **Decluttering of the Piece class -**  extracts all state-specific code into a set of distinct classes
 
-- **Implementation implicit code - **The structure of the pattern is implicit in the filesystem, allowing for a better understanding of all of it's functionality
-
-  
-
-### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
-
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
-
-**Example of such a subsection**:
+- **Implementation implicit code -** The structure of the pattern is implicit in the filesystem, allowing for a better understanding of all of it's functionality
 
 ------
 
-#### DATA CLASS
+#### Implementing difficulty changes using the Command pattern
 
-The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. This is problematic because […].
+**Problem in Context**
 
-A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
+In our game, the player can access a menu in which he is able to change the difficulty during gameplay. In this menu, the player
+is also allowed to undo previous changes he made. Following this thematic, the use of the Command pattern allows the program to 
+associate different difficulty changing commands to their respective "undo" command, as well as processing different commands in
+an orderly manner.
+
+**The Pattern**
+
+The Command pattern is a behavioral pattern that transforms a request into an isolated object containing all information about
+the request. This is important because of the need to queue, specify and execute different orders at different times. This implementation is possible through the creation of an interface **Command**, of which derive the **Concrete Command** objects, that we encapsulate in a **Receiver**, from here we process the **Commands** through an **Invoker**.
+
+- **Command:** Defines an interface for the orders we aim to implement.
+- **Concrete Command:** Provides the implementations for the methods defined in Command.
+- **Receiver:** Serves as a recipient for the units/queues of Commands.
+- **Invoker:** Processes the Commands present in the adequate Receiver.
+
+**Implementation**
+
+The following UML representation shows how the objects that compose the pattern connect themselves:
+
+![command pattern uml](docs\command pattern uml.png)
+
+**Consequences**
+
+The use of the Command Pattern in the current design has the following consequences:
+
+- **Increases code extensibility:** Makes it easier to add further commands without changing existing code and functionality.
+- **Reduces the dependency between the invoker and the receiver of a command**.
+
+------
+
+
+### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
+
+#### Missing Overrides
+
+In some instances of the code (e.g. Board.java:117:), the **@Override** method isn't implemented. This can lead to future problems, in the case that we misspell a method of the class, or we don't correctly match the parameters of the two methods, the one in the parent class, and the one in the child class.
+
+A way to overcome future problems is to add the **@Override** method, this because it will not only add a vibrant visual indication of the methods we want to override, but also save the project from future complications.
+
+------
+
+#### Usage of reference equality over value equality:
+
+In this project especially, the vast use of comparisons is necessary for the functionalities implemented over the board and pieces. The comparisons used over each block (represented by a _string_) of the 2D matrices are value comparisons.
+
+A method of overcoming future problems is to use reference equality, as it only needs to check if the two variables hold the same memory address, as oposed to comparing two values, which can be a lot slower.
+
+------
+
+#### Switch Statements
+
+The dispatchKey method in the keyController class is composed of a huge switch statement. Even though in this particular situation it doesn't appear as a big problem, the functionalities implemented in each case are simple, it can still lead to complications.
+
+A way of solving this problem might come from the implementation of a State/Strategy pattern.
 
 ### TESTING
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
-
+- **Coverage Report:**
+![coverage report png](docs\coverage report.png)
+- **Mutation Testing Report:**
+![mutation report png](docs\mutation tests report.png)
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
+- Diogo Costa: 33%
+- José Costa: 33%
+- Manuel Amorim: 33%
