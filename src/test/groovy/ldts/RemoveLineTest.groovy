@@ -1,3 +1,5 @@
+package ldts
+
 import ldts.model.RemoveLine
 import spock.lang.Specification
 

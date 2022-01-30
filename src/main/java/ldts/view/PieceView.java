@@ -35,7 +35,7 @@ public class PieceView extends View<Piece> {
 
         for (int y = 0; y < matrix.length; y++) {
             for (int x = 0; x < matrix[y].length * 2; x += 2) {
-                if (matrix[y][x / 2].equals("#000000")){
+                if (!"#000000".equals(matrix[y][x / 2])){
                     screen.putString(new TerminalPosition(pos_x * 2 + x + GameController.getGameScreenXoffset(), pos_y + y + GameController.getGameScreenYoffset()), " ");
                     screen.putString(new TerminalPosition(pos_x * 2 + x + 1 + GameController.getGameScreenXoffset(), pos_y + y + GameController.getGameScreenYoffset()), " ");
                 }

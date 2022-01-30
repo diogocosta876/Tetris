@@ -1,20 +1,5 @@
 package ldts.model;
 
-import com.googlecode.lanterna.*;
-import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import ldts.controller.GameController;
-import ldts.controller.keyController;
-import ldts.model.PieceStates.*;
-import ldts.view.PieceView;
-import ldts.model.Score;
-
-import java.io.IOException;
-import java.util.Random;
-
 public class Game {
 
     protected Board board;

@@ -1,3 +1,5 @@
+package ldts
+
 import ldts.model.Score
 import spock.lang.Specification
 

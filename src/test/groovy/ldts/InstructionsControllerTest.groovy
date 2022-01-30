@@ -1,17 +1,18 @@
+package ldts
+
 import com.googlecode.lanterna.TerminalSize
-import com.googlecode.lanterna.graphics.TextGraphics
 import com.googlecode.lanterna.screen.Screen
 import com.googlecode.lanterna.screen.TerminalScreen
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory
 import com.googlecode.lanterna.terminal.Terminal
-import ldts.model.Score
-import ldts.view.ScoreView
+import ldts.controller.InstructionsController
+import ldts.model.Game
+import ldts.model.HighDifficultyOrder
 import spock.lang.Specification
 
-class ScoreViewTest extends Specification{
-    def 'ScoreView Test'(){
+class InstructionsControllerTest extends Specification{
+    def"CheckDifficultyChanges"(){
         given:
-        Score score = new Score()
 
         Screen screen
         Terminal terminal
@@ -26,15 +27,13 @@ class ScoreViewTest extends Specification{
         } catch (IOException e) {
             e.printStackTrace()
         }
-        TextGraphics screenGraphics = screen.newTextGraphics()
 
+        def game = new Game()
+        def orderHigh = new HighDifficultyOrder(game)
+        InstructionsController instructionsController = new InstructionsController(screen,game)
         when:
-
-        ScoreView scoreView = new ScoreView(score)
-        scoreView.draw(screenGraphics)
-        screen.refresh()
-
+        instructionsController.orderQueue.add(orderHigh)
         then:
-        screenGraphics.getCharacter(52,24).character == '0' as char
+        instructionsController.checkDifficultyChanges() == "High Difficulty"
     }
 }

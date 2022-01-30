@@ -2,10 +2,11 @@ plugins {
     id 'groovy'
     id 'java'
     id 'application'
+    id 'info.solidsoft.pitest' version '1.6.0'
     id "org.kordamp.gradle.errorprone" version "0.47.0"
 }
 
-group 'com.g1305.tetris'
+group 'ldts'
 version '1.0'
 
 repositories {
@@ -19,8 +20,22 @@ dependencies {
 }
 
 application {
-    mainClass.set("Application")
+    mainClassName('ldts.Application')
 }
+
 test {
     useJUnitPlatform()
+}
+
+pitest {
+    junit5PluginVersion = '0.15'
+    pitestVersion = '1.6.7'
+
+    excludedTestClasses = ['ldts.BoardViewTest',
+                           'ldts.NextPieceViewTest',
+                           'ldts.PieceViewTest',
+                           'ldts.ScoreViewTest',
+                           'ldts.InstructionsControllerTest']
+
+    verbose = true
 }

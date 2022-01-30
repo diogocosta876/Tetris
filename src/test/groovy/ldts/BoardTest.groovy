@@ -1,3 +1,5 @@
+package ldts
+
 import ldts.model.Board
 
 import ldts.model.Piece

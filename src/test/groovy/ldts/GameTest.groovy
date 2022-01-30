@@ -1,3 +1,5 @@
+package ldts
+
 import ldts.model.Game
 import spock.lang.Specification
 

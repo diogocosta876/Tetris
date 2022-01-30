@@ -1,3 +1,5 @@
+package ldts
+
 import ldts.model.Piece
 import ldts.model.PieceStates.*
 import spock.lang.Specification

@@ -1,7 +1,8 @@
+package ldts
+
 import ldts.model.Game
 import ldts.model.HighDifficultyOrder
 import ldts.model.LowDifficultyOrder
-import ldts.model.Order
 import spock.lang.Specification
 
 class OrdersTest extends Specification{
