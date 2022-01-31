@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>IntMatrixToString.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package ldts.model.MatrixOperations;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public class IntMatrixToString {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static String[][] convert(int[][] matrix, String color){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String[][] pieceMatrix = new String[matrix.length][matrix[0].length];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_7'/>
+7
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_7'>3</a>
+<span>
+
+1. convert : changed conditional boundary &rarr; KILLED<br/>
+
+2. convert : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+3. convert : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int y = 0; y &#60; matrix.length; y++){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_8'/>
+8
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_8'>3</a>
+<span>
+
+1. convert : changed conditional boundary &rarr; KILLED<br/>
+
+2. convert : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+3. convert : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int x = 0; x &#60; matrix[y].length; x++){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_9'/>
+9
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_9'>1</a>
+<span>
+
+1. convert : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if(matrix[y][x]==1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    pieceMatrix[y][x] = color;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }else{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    pieceMatrix[y][x] = &#34;#000000&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_17'/>
+17
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_17'>1</a>
+<span>
+
+1. convert : replaced return value with null for ldts/model/MatrixOperations/IntMatrixToString::convert &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return pieceMatrix;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@564d3940_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@564d3940_7'>7</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_7'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convert<br/><b>Killed by : </b>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_0]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>convert<br/><b>Killed by : </b>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_0]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>convert<br/><b>Killed by : </b>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@564d3940_8'>8</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_8'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convert<br/><b>Killed by : </b>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_0]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>convert<br/><b>Killed by : </b>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_0]</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>convert<br/><b>Killed by : </b>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@564d3940_9'>9</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_9'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convert<br/><b>Killed by : </b>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@564d3940_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@564d3940_17'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convert<br/><b>Killed by : </b>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3]</span></span> replaced return value with null for ldts/model/MatrixOperations/IntMatrixToString::convert &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>NULL_RETURN_VALUES</li>
+
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_3] (8 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_2] (9 ms)</li><li>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_0] (5 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_4] (8 ms)</li><li>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_1] (5 ms)</li><li>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_2] (6 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_1] (7 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_0] (14 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_1] (7 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_0] (7 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3] (5 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_2] (7 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_9] (7 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_7] (7 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_6] (9 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_5] (8 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_4] (7 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_5] (5 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_3] (8 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_4] (5 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_2] (5 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_1] (6 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_0] (5 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.6.7
+
+</body>
+</html>

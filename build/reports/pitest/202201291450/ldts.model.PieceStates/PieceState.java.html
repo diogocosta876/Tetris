@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>PieceState.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package ldts.model.PieceStates;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ldts.model.MatrixOperations.IntMatrixToString;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public abstract class PieceState {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected String color;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected int[][] matrix;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getColor(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_11'/>
+11
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_11'>1</a>
+<span>
+
+1. getColor : replaced return value with &#34;&#34; for ldts/model/PieceStates/PieceState::getColor &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return color;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String[][] getMatrix() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_15'/>
+15
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_15'>1</a>
+<span>
+
+1. getMatrix : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(matrix != null){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_16'>1</a>
+<span>
+
+1. getMatrix : replaced return value with null for ldts/model/PieceStates/PieceState::getMatrix &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return IntMatrixToString.convert(matrix, color);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@731fae_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@731fae_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@731fae_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@731fae_11'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getColor<br/><b>Killed by : </b>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3]</span></span> replaced return value with &#34;&#34; for ldts/model/PieceStates/PieceState::getColor &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@731fae_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@731fae_15'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMatrix<br/><b>Killed by : </b>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@731fae_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@731fae_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMatrix<br/><b>Killed by : </b>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3]</span></span> replaced return value with null for ldts/model/PieceStates/PieceState::getMatrix &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>NULL_RETURN_VALUES</li>
+
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_1] (7 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_0] (7 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_3] (5 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_2] (7 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_7] (8 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_6] (7 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_5] (5 ms)</li><li>ldts.PieceRotationTest.[engine:spock]/[spec:ldts.PieceRotationTest]/[feature:$spock_feature_0_4] (5 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_3] (8 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_2] (9 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_5] (9 ms)</li><li>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_0] (5 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_4] (8 ms)</li><li>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_1] (5 ms)</li><li>ldts.PieceMovementTest.[engine:spock]/[spec:ldts.PieceMovementTest]/[feature:$spock_feature_0_2] (6 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_1] (7 ms)</li><li>ldts.BoardTest.[engine:spock]/[spec:ldts.BoardTest]/[feature:$spock_feature_0_0] (14 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_9] (7 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_7] (7 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_6] (9 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_5] (8 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_4] (7 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_3] (8 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_2] (5 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_1] (6 ms)</li><li>ldts.GameTest.[engine:spock]/[spec:ldts.GameTest]/[feature:$spock_feature_0_0] (5 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.6.7
+
+</body>
+</html>
