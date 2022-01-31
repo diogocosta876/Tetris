@@ -15,7 +15,7 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 **Main Menu**
 
-![game over](docs/main menu.png)
+![game over](docs/main%20menu.png)
 
 **Instructions Menu**
 
@@ -23,5 +23,5 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 **Game Over Screen**
 
-![game over](docs/game over.png)
+![game over](docs/game%20over.png)
 
