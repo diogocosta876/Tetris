@@ -11,17 +11,17 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 ### Game Current State
 
-![game gif](docs\gif.gif)
+![game gif](docs/gif.gif)
 
 **Main Menu**
 
-![game over](docs\main menu.png)
+![game over](docs/main menu.png)
 
 **Instructions Menu**
 
-![game over](docs\instructions.png)
+![game over](docs/instructions.png)
 
 **Game Over Screen**
 
-![game over](docs\game over.png)
+![game over](docs/game over.png)
 
