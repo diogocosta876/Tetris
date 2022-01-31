@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ldts.PieceViewTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-30T00:54:23" hostname="LAPTOP-TG6UCA0T" time="0.064">
-  <properties/>
-  <testcase name="PieceView Test" classname="ldts.PieceViewTest" time="0.064"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
