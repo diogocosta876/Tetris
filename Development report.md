@@ -75,7 +75,7 @@ If we have to change behavior of an object based on its state, we can have a **s
 The following UML representation shows how the different classes connect themselves. An interface forces the state classes to implement the methods needed to be a state object for the piece Class. If the random algorithm chooses a certain class, for example Lpiece, an instance of this class will be stored as state on the Piece instance that represents the moving piece in the game and the rest of the program will be able to access this state's specific attributes.
 
 
-![piece state.drawio](docs\piece state.drawio.png)
+![piece state.drawio](docs/piece state.drawio.png)
 
 
 
@@ -112,7 +112,7 @@ the request. This is important because of the need to queue, specify and execute
 
 The following UML representation shows how the objects that compose the pattern connect themselves:
 
-![command pattern uml](docs\command pattern uml.png)
+![command pattern uml](docs/command pattern uml.png)
 
 **Consequences**
 
@@ -151,9 +151,10 @@ A way of solving this problem might come from the implementation of a State/Stra
 ### TESTING
 
 - **Coverage Report:**
-![coverage report png](docs\coverage report.png)
+![coverage report png](docs/coverage report.png)
 - **Mutation Testing Report:**
-![mutation report png](docs\mutation tests report.png)
+-![mutation report png](docs/mutation tests report.png)
+- [pitestLink](build/reports/pitest/202201291450)
 ### SELF-EVALUATION
 
 - Diogo Costa: 33%
