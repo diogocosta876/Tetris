@@ -155,5 +155,5 @@ Class: 85%
 Method: 66%
 Line: 46%
 
-### Game Demo
+### GAME DEMO
 ![game demo](docs/gif.gif)
