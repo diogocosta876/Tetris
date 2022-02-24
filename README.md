@@ -28,7 +28,7 @@ This project was developed by *Diogo Costa* (*up202007770*),  *José Costa* (*up
 
 **Problem in Context**
 
-While initially working on the project, we were finding ourselves struggling to effectively work on the project   all at the same time. On top of that, the complexity level was also rising and making our efforts less productive.
+While initially working on the project, we were finding ourselves struggling to effectively work on the project all at the same time. On top of that, the complexity level was also rising and making our efforts less productive.
 
 **The Pattern**
 
@@ -75,7 +75,7 @@ If we have to change behavior of an object based on its state, we can have a **s
 The following UML representation shows how the different classes connect themselves. An interface forces the state classes to implement the methods needed to be a state object for the piece Class. If the random algorithm chooses a certain class, for example Lpiece, an instance of this class will be stored as state on the Piece instance that represents the moving piece in the game and the rest of the program will be able to access this state's specific attributes.
 
 
-![piece state.drawio](docs\piece state.drawio.png)
+![piecestate.drawio](docs/piece%20state.drawio.png)
 
 
 
@@ -112,7 +112,7 @@ the request. This is important because of the need to queue, specify and execute
 
 The following UML representation shows how the objects that compose the pattern connect themselves:
 
-![command pattern uml](docs\command pattern uml.png)
+![command_pattern_uml](docs/command%20pattern%20uml.png)
 
 **Consequences**
 
@@ -151,11 +151,9 @@ A way of solving this problem might come from the implementation of a State/Stra
 ### TESTING
 
 - **Coverage Report:**
-![coverage report png](docs\coverage report.png)
-- **Mutation Testing Report:**
-![mutation report png](docs\mutation tests report.png)
-### SELF-EVALUATION
+Class: 85%
+Method: 66%
+Line: 46%
 
-- Diogo Costa: 33%
-- José Costa: 33%
-- Manuel Amorim: 33%
+### Game Demo
+![game demo](docs/gif.gif)
